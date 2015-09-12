@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="clasiroutes">
+	<!-- HEAD
+	================================================== -->
+    <head>
+		<meta charset="utf-8">
+		<title>ClasiNuevos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- CSS Links -->
+		<!-- BOOTSTRAP - Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<!-- BOOTSTRAP Optional theme -->
+		<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+		<!-- FONT-AWESOME Optional theme -->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<!-- Custom JQUERY UI styles -->
+		<link href="/css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+		<!-- Custom BOOTSTRAP CAROUSEL styles -->
+		<link href="/css/carousel.css" rel="stylesheet">
+		<!-- Custom CALSINUEVOS style -->
+		<link href="/css/clasinuevos.css" rel="stylesheet">
+		<!-- VALIDATION ENGINE CSS -->
+		<link href="/css/validationEngine.jquery.css" rel="stylesheet">
+
+		<!-- SCRIPTS -->
+		<!-- GOGGLE ANALYTICS -->
+		<script src="js/google-analytics.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="/js/html5shiv.js"></script>
+		  <script src="/js/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    
+	<!-- BODY
+	================================================== -->
+    <body>
+    	<!-- Facebook Comments Integration -->
+    	<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		   var js, fjs = d.getElementsByTagName(s)[0];
+		   if (d.getElementById(id)) return;
+		   js = d.createElement(s); js.id = id;
+		   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=210475399134667";
+		   fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+		<!-- TOP BAR at top, Multicolor -->
+		<div class="topbar"></div>
+		
+		<!-- NAVIGATION Bar Menu
+		================================================== -->
+		<div class="navbar-wrapper">
+			<div class="container">
+
+				<div class="navbar navbar-inverse navbar-static-top">
+
+					<div class="container">
+	
+						<div class="navbar-header">
+							<button type="button" class="xsMenuBtn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<div class="center-text center-fields">
+									<span class="icon-bar center-text"></span>
+									<span class="icon-bar center-text"></span>
+									<span class="icon-bar nopaddingbottom center-text"></span>
+									<div class="xsMenu">Menú</div>
+								</div>
+							</button>
+							<div id="toolspinLogo">
+								<a class="navbar-brand nopaddingall smallpaddingright smallpaddingLeftRightLogo" href="/">
+									<div class="">
+										<img src="/img/logo_229x49_90ppi.png" alt="ClasiNuevos">
+									</div>
+								</a>
+							</div>
+						</div>
+		
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li><a id="publishBtn0" class="publishBtns hidden-sm" href="#publishDrawer">Publicar</a></li>
+								<li><a id="calcBtn" href="#calcDrawer"><div class="visible-sm">Calc</div><div class="hidden-sm">Calculadora</div></a></li>
+								<li class="dropdown visible-sm visible-xs">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									  Información <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a id="migracionBtn" href="#migracionDrawer">Migración</a></li>
+										<li><a id="bienesRaicesBtn" href="#bienesRaicesDrawer">Bienes Raíces</a></li>
+										<li><a id="financiamientoBtn" href="#financiamientoDrawer">Financiamiento</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									  Nosotros <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a id="faqsBtn" href="#faqsDrawer">FAQs</a></li>
+										<li><a id="contactBtn" href="#contactDrawer">Contáctenos</a></li>
+										<li><a id="sobreNosotrosBtn" href="#sobreNosotrosDrawer">Sobre Nosotros</a></li>
+									</ul>
+								</li>
+							<% if(userName == "Visitante") { %>
+								<li><a id="loginBtn" href="#">Log-In</a></li>
+							<% } 
+							   else {	%>
+							   		<li class="dropdown visible-xs">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+										  Hola <%= userName %> <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<% if(category == "administrator") { %>
+												<li><a class="administradorBtn" href="#administradorDrawer">Administrador</a></li>
+											<% } %>
+											<li><a class="myaccountBtn" href="#myaccountDrawer">Mi Cuenta</a></li>
+											<li><a id="signoutBtn" href="/logout">Log-Out</a></li>
+										</ul>
+									</li>
+<%								} %>
+							</ul>
+							<div class="user-welcome hidden-xs right">
+								<% if (userName == "Visitante") { %>
+									Hola <%= userName %>
+								<% } 
+								   else {%>
+										<li class="dropdown">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											  Hola <%= userName %> <span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<% if(category == "administrator") { %>
+													<li><a class="administradorBtn" href="#administradorDrawer">Administrador</a></li>
+												<% } %>
+												<li><a class="myaccountBtn" href="#myaccountDrawer">Mi Cuenta</a></li>
+												<li><a id="signoutBtn" href="/logout">Log-Out</a></li>
+											</ul>
+										</li>
+								<% }%>
+							</div>
+						</div>
+					
+						<!-- Login -->
+						<div id="loginDrawer" class='container <%= hidden %> medpaddingbottom loginDrawer'>
+							<!-- Close Button -->
+							<div class="row">
+								<div class="col-md-12">
+									<a id="closeLogin" href="#loginDrawer" class="right nopaddingbottom"><i class="icon-remove-sign icon-2x"></i></a>
+								</div>
+							</div>
+						
+							<!-- Log-in and Sign-in Forms -->
+							<div id="loginData">
+								<div class="row largepaddingleft largepaddingright center-fields loginPadding">
+									<div id="login" class="col-md-6">
+									
+										<form id="loginForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/login">
+											<h3 class="logocolors-noshadow center-text nomargintop">Ingrese <small>(Log-in)</small></h3>
+											<div class="form-group">
+												<div class="col-lg-12 col-md-12">
+													<input type="text" class="form-control validate[required]" id="username" name="username" placeholder="Nombre de Usuario">
+												</div>
+											</div>
+				
+											<div class="form-group">
+												<div class="col-lg-12 col-md-12">
+													<input type="password" class="form-control validate[required]" id="password" name="password" placeholder="Contraseña">
+												</div>
+											</div>
+											<% if (errorLogin) { %>
+												<p class="alert alert-danger"><%= errorLogin %></p>
+											<% } %>
+											<button type="submit" class="btn btn-clasinuevos">Ingrese</button>
+										</form>
+				
+									</div>
+									<div id="newAccount" class="col-md-6">	
+									
+										<form id="signnewForm" class="form-horizontal loginForm" role="form" method="post" action="/signnew">
+											<h3 class="logocolors-noshadow center-text nomargintop">Regístrese <small>(Sign-Up)</small></h3>
+											<div class="form-group">
+												<div class="col-lg-12 col-md-12">
+													<input type="text" class="form-control validate[required]" id="fullName" name="fullNameOwner" placeholder="Su Nombre Completo">
+												</div>
+											</div>
+					
+											<div class="form-group">
+												<div class="col-lg-12 col-md-12">
+													<input type="text" class="userName form-control validate[required]" id="userName" name="username" placeholder="Nombre de Usuario Deseado">
+												</div>
+											</div>
+			
+											<div class="form-group">
+												<div class="col-lg-12 col-md-12">
+													<input type="email" class="form-control validate[required,custom[email]]" id="signnewEmail" name="email" placeholder="Su Email">
+												</div>
+											</div>
+			
+											<div class="form-group">
+												<div class="col-lg-12 col-md-12">
+													<input type="password" class="form-control validate[required]" id="passwordSignup" name="password" placeholder="Contraseña Deseada">
+												</div>
+											</div>
+			
+											<div class="form-group">
+												<div class="col-lg-12 col-md-12">
+													<input type="password" class="form-control validate[required,equals[passwordSignup]]" id="passwordConfSignup" name="passwordConf" placeholder="Confirme Contraseña">
+												</div>
+											</div>
+											
+											<!-- Hidden Fields to match Publich Form Registration and Avoid Try-Catch on server (undefined error) -->
+											<input type="hidden" name="fullNameRealtor" value="">
+											<input type="hidden" name="ownerOrRealtor" value="Dueno">
+											<% if (errorSignup) { %>
+												<p class="alert alert-danger"><%= errorSignup %></p>
+											<% } %>
+											<button type="submit" class="userNameOk btn btn-clasinuevos">Crear Cuenta</button>
+										</form>
+				
+									</div>
+								</div>
+							</div>
+						
+						</div>
+						
+					</div>
+	
+				</div>
+			
+			</div>
+		</div>
+ 
+		<!-- CAROUSEL
+		================================================== -->
+		<div id="myCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item active">
+					<!--<img src="/img/temp/jagged.png">-->
+					<div id="carouselMod" class="carousel-caption">
+						<div id="mainLogo">
+							<div class="row visible-lg visible-md visible-sm">
+								 <img class="logo-responsive logo-img-adj" src="/img/logo_527x112_90ppi.png" alt="Tool">
+								 <h1><strong>¡La Ventana a tu Propiedad!</strong></h1>
+							</div>
+							<div class="logo-img-adj visible-xm hidden-lg hidden-md hidden-sm">
+								 <h1><strong>¡La <br>Ventana <br>a tu<br>Propiedad!</strong></h1>
+							</div>
+							<div>
+								
+							</div>
+						</div>
+						
+						<!--
+						<div id="horizontalAd" class="hidden row">
+							<div class="horizontalAd1 text-center center-fields">
+								<h3 class="medpaddingtop medpaddingbottom">
+									¡Anunciate Aquí! 
+								</h3>
+							</div>
+							<div class="horizontalAd2 text-center center-fields">
+								<h3 class="medpaddingtop medpaddingbottom">
+									¡Muchos <span class="hidden-xxs">Ojos </span>Te Verán!
+								</h3>
+							</div>
+							<div class="horizontalAd-information text-center center-fields">
+								<h3 class="medpaddingtop medpaddingbottom"> 
+										<a href="#" class="info-request">Solicite Información</a> 
+								</h3>
+							</div>
+						</div> -->
+						
+					</div>
+				</div>
+			</div>
+			<span class="left carousel-control" href="#myCarousel" data-slide="prev"><span class=""></span></span>
+			<span class="right carousel-control" href="#myCarousel" data-slide="next"><span class=""></span></span>
+		</div><!-- /.carousel -->
+
+		<!-- WIDE ROW - PUBLISH Clasified BUTTON
+		 ================================================== -->
+		<div id="social-buttons-row" class="well well-sm">
+			
+			<div class="container">
+				<div class="row">
+					<!-- Row to incentivate to Publish a Classified -->
+					<div class="hidden-xs">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<h3 class="smallmargintop visible-lg visible-md right">Publicar Clasificados Gratis!...</h3>
+							<h3 class="smallmargintop visible-sm right">Clasificados Gratis!...</h3>
+						</div>
+					</div>	
+		
+					<div class="hidden-xs">
+						<div class="col-xs-6 col-sm-6 col-md-6 center-text">
+							<button id="publishBtn1" type="button" class="publishBtns btn btn-clasinuevos btn-lg">Publicar <i class="icon-chevron-right"></i></button>
+						</div>
+					</div>	
+				
+					<div class="visible-xs">
+						<div class="col-xs-12 col-sm-12 col-md-12 center-text">
+							<button id="publishBtn2" type="button" class="publishBtns btn btn-clasinuevos btn-lg btn-block">Publicar Clasificado <i class="icon-chevron-right"></i></button>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+
+		<!-- CONTENT - Search, Results, Ads, FAQs, etc.
+		================================================== -->
+		<div class="container nomargintop">
+			<div class="row">
+				<!-- ADS
+				****************************************** -->
+				<div class="col-lg-4 col-md-4">
+					
+					<!-- Migracion -->
+					<div id="migracionDrawer">
+					
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title text-center"><i class="icon-plane icon-2x left iconAdjust"></i> Migración
+									<!-- Close Button -->
+									<a id="closeMigracion" href="#migracionDrawer" class="hidden-lg hidden-md right nopaddingbottom">
+										<i class="icon-remove-sign icon-large"></i>
+									</a>
+								</h3>
+							</div>
+							<div class="panel-body migracion ui-widget-content">
+								La actual crisis económica por la que atravesamos ha provocado la migración de sobre 176,000 puertorriqueños en 5 años.  Esta situación se agrava cada año 
+								y el moverse a los E.U. es una alternativas que miles consideran.  En ClasiNuevos.com hemos recopilado unos importantes consejos
+								para aquellos que consideran esta difícil decisión.
+								<div class="panel-group" id="accordion">
+								  <div class="panel panel-warning">
+									<div class="panel-heading">
+									  <h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#migracion1">
+										  <span class="glyphicon glyphicon-stop"></span> Investigue antes de mudarse
+										</a>
+									  </h4>
+									</div>
+									<div id="migracion1" class="panel-collapse collapse">
+									  <div class="panel-body">
+										Es muy importante que realice su asignación e investigue las opciones que tiene disponible en los Estados Unidos. No debe aventurarse
+										sin antes conocer el area a donde piensa irse; investigue sobre el desempleo, criminalidad, economia y actividades recreativas existentes
+										en esa area.  Recuerde, el hacer la investigación ahora le evitar arrepentirse despues!
+									  </div>
+									</div>
+								  </div>
+								  <div class="panel panel-warning">
+									<div class="panel-heading">
+									  <h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#migracion2">
+										  <span class="glyphicon glyphicon-stop"></span> Planifique con tiempo su partida
+										</a>
+									  </h4>
+									</div>
+									<div id="migracion2" class="panel-collapse collapse">
+									  <div class="panel-body">
+										El migrar a los Estados Unidos debe planificarse con suficiente tiempo de anticipación y no debe tomarse a la ligera.  Investigue la
+										localización, establezca contactos con entidades gubernamentales y con compañías especializadas en relocalizaciones.  Si es posible,
+										comience el proceso con un (1) año de anticipación o como mínimo seis (6) meses antes para asegurar que el proceso de transición sea
+										mas llevadero.
+									  </div>
+									</div>
+								  </div>
+								  <div class="panel panel-warning">
+									<div class="panel-heading">
+									  <h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#migracion3">
+										  <span class="glyphicon glyphicon-stop"></span> Utilice una compañía especializada en Mudanzas
+										</a>
+									  </h4>
+									</div>
+									<div id="migracion3" class="panel-collapse collapse">
+									  <div class="panel-body">
+										El proceso de mudanza puede resultar en una verdadera pesadilla y mas si estamos moviendose a un pais diferente o a una cultura extranjera.
+										para que usted pueda manejar esta complejidad y concentrarse en su trabajo y familia, se recomienda que seleccione a una compañía especializada
+										en este proceso.
+									  </div>
+									</div>
+								  </div>
+								</div>
+							</div>
+						</div>
+					
+						<!-- HORIZONTAL ADS POSITION A1
+						++++++++++++++++++++++++++++++++++++++ -->
+						<div id="AD_PA1" class="row">
+							<div class="horizontalTopAd1 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b2a1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd2 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b1a1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd-information text-center center-fields">
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									<a href="#" class="info-request">Solicite Información</a> 
+								</h3>
+							</div>
+						</div>
+						
+					</div>
+					
+					<!-- Bienes Raices -->
+					<div id="bienesRaicesDrawer">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title text-center"><i class="icon-home icon-2x iconAdjust left"></i> Bienes Raíces
+									<!-- Close Button -->
+									<a id="closeBienesRaices" href="#bienesRaicesDrawer" class="hidden-lg hidden-md right nopaddingbottom">
+										<i class="icon-remove-sign icon-large"></i>
+									</a>
+								</h3>
+							</div>
+							<div class="panel-body migracion ui-widget-content">
+								El gobernador Alejandro García Padilla firmó la Ley Núm. 68 para incentivar la venta de viviendas. Esta
+								enmienda la Ley Núm. 16-2011 y permite extensión de los beneficios de la ley, a las 
+								unidades de vivienda cuya fase de construcción se encuentre, como mínimo, a un 50% de su terminación.
+								Entre los incentivos se encuentran exención de la contribución sobre la propiedad inmueble por cinco años, 
+								aplicable a todo adquiriente o inversionista de una vivienda; exención del 100% del pago por concepto de 
+								sellos de rentas internas y comprobantes para todas las partes involucradas en la venta de la vivienda; 
+								exención del pago de comprobantes para la inscripción en el Registro de la Propiedad; exención del pago de 
+								la contribución alterna básica y la contribución alterna mínima sobre la ganancia neta producto de la venta 
+								de la vivienda.
+							</div>
+						</div>
+					
+						<!-- HORIZONTAL ADS POSITION A2
+						++++++++++++++++++++++++++++++++++++++ -->
+						<div id="AD_PA2" class="row">
+							<div class="horizontalTopAd1 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b1a1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd2 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b2a1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd-information text-center center-fields">
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									<a href="#" class="info-request">Solicite Información</a> 
+								</h3>
+							</div>
+						</div>
+					
+					</div>
+					
+					<!-- Financiamiento -->
+					<div id="financiamientoDrawer">
+					
+						<div id="#financiamientoDrawer" class="panel panel-info ">
+							<div class="panel-heading">
+								<h3 class="panel-title text-center"><i class="icon-money icon-2x left iconAdjust"></i> Financiamiento
+									<!-- Close Button -->
+									<a id="closeFinanciamiento" href="#financiamientoDrawer" class="hidden-lg hidden-md right nopaddingbottom">
+										<i class="icon-remove-sign icon-large"></i>
+									</a>
+								</h3>
+							</div>
+							<div class="panel-body migracion ui-widget-content">
+								A partir del 16 de Julio de 2013, entró en vigor el programa de “Mi casa propia” el cual fue creado bajo la Ley 34 del 26 de junio de 2013 
+								para la compra de viviendas que no excedan los 200 mil dólares. El mismo consiste en la concesión subsidiada equivalente al 3 por 
+								ciento del precio de venta o el valor tasado, lo que sea menor, para ser utilizado en el pronto pago y gastos de cierre hasta un 
+								máximo de 6 mil dólares; pare este programa el gobierno asignó 15.3 millones de dólares. 
+							</div>
+						</div>
+					
+						<!-- HORIZONTAL ADS POSITION A3
+						++++++++++++++++++++++++++++++++++++++ -->
+						<div id="AD_PA3" class="row">
+							<div class="horizontalTopAd1 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b2a1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd2 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b1a1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd-information text-center center-fields">
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									<a href="#" class="info-request">Solicite Información</a> 
+								</h3>
+							</div>
+						</div>
+						
+					</div>
+					
+					<div id="#facebookDrawer" class="panel panel-info hidden-sm hidden-xs">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center"><i class="icon-facebook-sign icon-2x left iconAdjust"></i>FACEBOOK</h3>
+						</div>
+						<div class="panel-body migracion ui-widget-content">
+							<div class="fb-like-box" data-href="http://www.facebook.com/clasinuevos" data-height="500" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="true" data-show-border="false"></div>
+						</div>
+					</div>
+					
+					<div id="#twitterDrawer" class="panel panel-info hidden-sm hidden-xs">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center"><i class="icon-twitter-sign icon-2x left iconAdjust"></i>TWITTER</h3>
+						</div>
+						<div class="panel-body migracion ui-widget-content">
+							<a class="twitter-timeline" href="https://twitter.com/ClasiNuevos" data-widget-id="398234765247016960">Tweets by @ClasiNuevos</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+					</div>
+					
+					<div id="#instagramDrawer" class="panel panel-info hidden-sm hidden-xs">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center"><i class="icon-instagram icon-2x left iconAdjust"></i>INSTAGRAM</h3>
+						</div>
+						<div class="panel-body migracion ui-widget-content center-text">
+							<style>.ig-b- { display: inline-block; }
+							.ig-b- img { visibility: hidden; }
+							.ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
+							.ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
+							@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+							.ig-b-v-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png); background-size: 160px 178px; } }</style>
+							<a href="http://instagram.com/clasinuevos?ref=badge" target="_blank" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a>
+						</div>
+					</div>
+
+				</div>
+			
+				<!-- CENTRAL CONTENT
+				****************************************** -->
+				<div id="mainContent" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<!-- MAIN SEARCH
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="searchDrawer" class="drawerAdjustments">
+						<div id="searchData"><div class="text-center largemargintop"><h1>Cargando... <i class="icon-refresh icon-spin"></i></h1></div></div>
+					</div>
+					
+					<!-- HORIZONTAL ADS ON POSITION B1
+					++++++++++++++++++++++++++++++++++++++ -->
+						<div class="row">
+							<div class="horizontalTopAd1 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="#">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b1b1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd2 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #2<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="#">
+								<img class="img-responsive" src="https://s3.amazonaws.com/clasinuevos/uploads/b2b1.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalTopAd-information text-center center-fields">
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									<a href="#" class="info-request">Solicite Información</a> 
+								</h3>
+							</div>
+						</div>
+					
+					<!-- MY ACCOUNT
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="myaccountDrawer" class="hidden drawerAdjustments">
+						<div id="myaccountData"><div class='text-center largemargintop'><h1>Cargando... <i class='icon-refresh icon-spin'></i></h1></div></div>
+					</div>
+					<!-- ADMINISTRATOR DRAWER
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="administradorDrawer" class="hidden drawerAdjustments">
+						<div id="administradorData"><div class='text-center largemargintop'><h1>Cargando... <i class='icon-refresh icon-spin'></i></h1></div></div>
+					</div>
+					<!-- DETAILS VIEW
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="detailsDrawer" class="drawerAdjustments">
+						<div id="detailsData"><!-- <div class="text-center largemargintop"><h1>Cargando... <i class="icon-refresh icon-spin"></i></h1></div>--></div>
+					</div>
+					<!-- SEARCH RESULTS - Tabs
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="resultsDrawer" class="medpaddingbottom drawerAdjustments">
+						<div id="resultsData"></div>
+					</div>
+					<!-- PUBLISH CLASSIFIED
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="publishDrawer" class="hidden drawerAdjustments">
+						<div id="publishData"><div class="text-center largemargintop"><h1>Cargando... <i class="icon-refresh icon-spin"></i></h1></div></div>
+					</div>
+					<!-- MORTGAGE CALCULATOR
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="calcDrawer" class="hidden drawerAdjustments">
+						<div id="calcData"><div class="text-center largemargintop"><h1>Cargando... <i class="icon-refresh icon-spin"></i></h1></div></div>
+					</div>
+					<!-- FAQs
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="faqsDrawer" class="hidden well well-sm drawerAdjustments">
+						<a id="closeFaqs" href="#faqsDrawer" class="right"><i class="icon-remove-sign icon-2x"></i></a>
+						<div id="faqsData"><div class="text-center largemargintop"><h1>Cargando... <i class="icon-refresh icon-spin"></i></h1></div></div>
+					</div>
+					<!-- SOBRE NOSOTROS
+					++++++++++++++++++++++++++++++++++++++ -->
+					<div id="sobreNosotrosDrawer" class="hidden well well-sm drawerAdjustments">
+						<a id="closeSobreNosotros" href="#sobreNosotrosDrawer" class="right"><i class="icon-remove-sign icon-2x"></i></a>
+						<div id="sobreNosotrosData"><div class="text-center largemargintop"><h1>Cargando... <i class="icon-refresh icon-spin"></i></h1></div></div>
+					</div>
+					
+					<!-- HORIZONTAL ADS POSITION B2
+					++++++++++++++++++++++++++++++++++++++ -->
+						<div class="row">
+							<div class="horizontalBotAd1 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #1<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive largemargintop" src="https://s3.amazonaws.com/clasinuevos/uploads/b1b2.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalBotAd2 text-center center-fields medmarginbottom">
+								<!--
+								<h3 class="nomargintop medmarginbottom medpaddingtop medpaddingbottom">
+									Banner #2<span class="hidden-xxs"> Rotativo </span>- Posición B1
+								</h3>
+								-->
+								<a href="http://www.dactylmobile.com" target="_blank">
+								<img class="img-responsive largemargintop" src="https://s3.amazonaws.com/clasinuevos/uploads/b2b2.png" alt="Banner Dactyl Mobile">
+								</a>
+							</div>
+							<div class="horizontalBotAd-information text-center center-fields">
+								<h3 class="medmargintop medmarginbottom medpaddingtop medpaddingbottom">
+									<a href="#" class="info-request">Solicite Información</a> 
+							</h3>
+							</div>
+						</div>					
+				</div>
+			
+				<!-- ADS
+				****************************************** 
+				<div class="col-lg-2 col-md-2">
+					<div class="panel panel-info">
+						<div class="panel-body columns">
+							<div class="hidden-sm hidden-xs">
+								<div class="ad1-placeholder medpaddingbottom text-center"><h3 class="largepaddingtop"><br><div class="colorWhite">¡Anunciate Aquí!</div></h3></div>
+								<div class="ad2-placeholder medpaddingbottom text-center"><h3 class="largepaddingtop"><br><div class="colorWhite">¡Muchos Ojos Te Verán!</div></h3></div>
+								<div class="ad-information medpaddingbottom text-center"><h3 class="largepaddingtop"><br><a href="#" class="info-request">Solicite Información</a></h3></div>
+							</div>
+							<div class="hidden-sm hidden-xs">
+								<div class="ad1-placeholder medpaddingbottom text-center"><h3 class="largepaddingtop"><br><div class="colorWhite">¡Anunciate Aquí!</div></h3></div>
+								<div class="ad2-placeholder medpaddingbottom text-center"><h3 class="largepaddingtop"><br><div class="colorWhite">¡Muchos Ojos Te Verán!</div></h3></div>
+								<div class="ad-information medpaddingbottom text-center"><h3 class="largepaddingtop"><br><a href="#" class="info-request">Solicite Información</a></h3></div>
+							</div>
+						</div>
+					</div>
+				</div>-->
+			</div>
+			
+			<!-- Modal Ad Contact-->
+			<div class="modal fade" id="adContactModal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form id="adContactForm" class="form-horizontal" role="form" action="/adcontact">
+						
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 id="contactTitle" class="modal-title">Solicitud de Información sobre Anuncio en ClasiNuevos.com</h4>
+							</div>
+						
+							<div class="modal-body">
+							
+								<div class="form-group">
+									<label for="adName" class="col-lg-3 control-label">Nombre <i class="icon-asterisk icon-spin"></i></label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control validate[required]" id="adName" name="name" placeholder="Su Nombre">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="adEmail" class="col-lg-3 control-label">Email <i class="icon-asterisk icon-spin"></i></label>
+									<div class="col-lg-9">
+										<input type="email" class="form-control validate[required,custom[email]]" id="adEmail" name="email" placeholder="Su Email">
+									</div>
+								</div>
+							
+								<div class="form-group">
+									<label for="adInfo" class="col-lg-3 control-label">Información Solicitada <i class="icon-asterisk icon-spin"></i></label>
+									<div class="col-lg-9">
+										<textarea id="adInfo" class="form-control validate[required] " rows="3" name="info">Deseo recibir información acerca de pautar un anuncio en ClasiNuevos.com.</textarea>
+									</div>
+								</div>
+							
+								<div class="form-group">
+									<div class="col-lg-offset-3 col-lg-9">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" id="callMe" name="callMe" value="sign"> Deseo que un representante de ClasiNuevos.com se comunique conmigo personalmente.
+											</label>
+										</div>
+									</div>
+								</div>
+								
+								<div id="telGroup" class="form-group">
+									<label for="telephone" class="col-lg-3 control-label">Teléfono <i class="icon-asterisk icon-spin"></i></label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control validate[required,custom[phone]]" id="telephone" name="telephone" placeholder="Su Número de Teléfono">
+									</div>
+								</div>
+									
+							</div>
+						
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+								<button id="submitAdContact" type="submit" class="btn btn-primary">Solicitar</button>
+							</div>
+							
+						</form>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="offerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+				  	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title center-text" id="myModalLabel">Oferta de Introducción</h2>
+				  </div>
+				  <div class="modal-body center-text center-fields">
+					<img class="img-responsive largemargintop center-fields" src="https://s3.amazonaws.com/clasinuevos/uploads/banner_452x167_90ppi.png" alt="Comming Soon Dactyl Mobile">
+					<h3 class="center-text"><font color="green"><strong><em>Publique <font color="red">Hoy</font> su Clasificado Gratis... <br>y Añada Hasta 5 Fotos, Sin Costo Adicional!</em></strong></font></h3>
+				  </div>
+				  <div class="modal-footer">
+					<button id="specialPublish" type="submit" class="publishBtns btn btn-primary">Publicar</button>
+				  </div>
+				</div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+			
+			<!-- FOOTER -->
+			<footer>
+				<div class="largepaddingtop">
+					<p class="pull-right"><a href="#">Principio</a></p>
+					<p>&copy; 2013 ClasiNuevos.com &middot; <a href="#">Privacy</a> &middot; <a href="#">Términos</a></p>
+				</div>
+			</footer>
+
+		</div><!-- /.container -->
+
+		<!-- START SCRIPTS Bootstrap & core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- JQUERY -->    
+		<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<!-- BOOSTRAP -->    
+		<script src="/js/bootstrap.min.js"></script>
+		<!-- JQUERY UI -->    
+		<script src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<!-- CLASINUEVOS -->    
+		<script src="/js/clasinuevos.js"></script>
+		<!-- SWITCH BUTTON -->    
+		<script src="/js/jquery.switchButton.js"></script>
+		<!-- HOLDER -->    
+		<script src="/js/holder.js"></script>
+		<!-- FORM VALIDATION ENGINE -->    
+		<script src="/js/jquery.validationEngine-es.js"></script>
+		<script src="/js/jquery.validationEngine.js"></script>
+		<script src="/js/other-validations.js"></script>
+		<!-- MORTGAGE CALC -->
+		<script type="text/javascript" src="/js/jsapi.js"></script>
+		<script type="text/javascript" src="/js/accounting.js"></script>
+		<script type="text/javascript" src="/js/mortgage.js"></script>
+		<script type="text/javascript" src="/js/graph.js"></script>
+		<script type="text/javascript" src="/js/init.js"></script>
+		<!-- PUBLISH SCRIPTS -->
+			<!-- SMART_WIZARD CSS -->
+			<link href="/css/smart_wizard.css" rel="stylesheet">
+			<!-- DROPBOX FILE UPLOAD CSS -->
+			<link href="/css/dropbox.css" rel="stylesheet">
+			<!-- PEKE FILE UPLOAD CSS -->
+			<link href="/css/peke.css" rel="stylesheet">
+			<!-- STRIPE CHECKOUT -->    
+			<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+			<!-- FORM WIZARD -->    
+			<script src="/js/jquery.smartWizard.js"></script>
+
+			<!-- PICTURE DROP FILEDROP -->
+			<script src="/js/jquery.filedrop.js"></script>			
+			<!-- PICTURE DROP PEKEUPLOAD -->    
+			<script src="/js/pekeUpload.js"></script>
+		<!-- DETAILS SCRIPTS -->
+			<!-- BLUEIMP GALLERY CSS -->
+			<link rel="stylesheet" href="/css/blueimp-gallery.min.css">
+			<!-- BLUEIMP GALLERIA SCRIPTS -->
+			<script src="/js/blueimp-gallery.min.js"></script>
+		<!-- GOOGLE ANALYTICS -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-41676865-3', 'clasinuevos.com');
+		  ga('send', 'pageview');
+
+		</script>
+		<!-- AddThis Smart Layers BEGIN -->
+		<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-527aa9fc24118f1f"></script>
+		<script type="text/javascript">
+		  addthis.layers({
+			'theme' : 'transparent',
+			'share' : {
+			  'position' : 'left',
+			  'numPreferredServices' : 6
+			}, 
+			'follow' : {
+			  'services' : [
+				{'service': 'facebook', 'id': 'clasinuevos'},
+				{'service': 'twitter', 'id': 'clasinuevos'},
+				{'service': 'instagram', 'id': 'clasinuevos'}
+			  ]
+			},  
+			'whatsnext' : {},  
+			'recommended' : {
+			  'title': 'Recomendado para ti:'
+			}
+	
+		  });
+		</script>
+		<!-- AddThis Smart Layers END -->
+		<!-- END   SCRIPTS -->
+  </body>
+</html>

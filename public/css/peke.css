@@ -1,0 +1,50 @@
+/*--------------------------
+     PEKE CSS
+---------------------------*/
+.white-text {
+	color:#ffffff;
+}
+
+#icon-peke {
+	background-position: 0% 0%;
+}
+
+#btn-peke{
+	padding: 10px;
+} 
+
+#progress-peke{
+	background-size: 20px 20px;
+}   
+
+.inline-elements{
+	height:100%;
+	width:100%;
+	display:inline;
+}
+
+/***** Close Button *****/
+.inline-elements a i{
+	color:#FF0000;
+	text-decoration:none;
+	text-shadow:none;
+	background-size:0;
+}
+
+/***** icon settings *****/
+.controls a i{
+	text-shadow:none;
+	background-size:0;
+	background-position:240px 24px;
+	text-decoration:none;
+}
+
+.control-label i{
+	background-size:0;
+	color:red;
+}
+
+.span2 .box2 .title3 .rt-block h2.title{
+	color: #81CDE7;
+	text-shadow: 1px 1px grey;
+}

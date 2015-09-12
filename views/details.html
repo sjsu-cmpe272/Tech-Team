@@ -1,0 +1,242 @@
+<!-- DETAILS -->    
+<script src="/js/details.js"></script>
+			
+<!-- START DETAILS SECTION - TO BE VISSIBLE WHEN a PROPERTY IS SELECTED -->
+<div id="details" class="panel panel-info">
+	<div class="panel-heading"><!-- Row 0 -->
+		<button id="atrasBtn" class="btn btn-warning left"><i class="icon-chevron-sign-left"></i> Atrás</button>
+		<h4 class="text-center nomarginall smallpaddingtop minipaddingbottom">Detalles de la Propiedad</h4>
+	</div>
+	<div class="panel-body nopaddingbottom">
+		<div class="container">
+			<div id="detailsRow1" class="row"> <!-- Row 1 -->
+				<div id="r1c1" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+					<strong><%= data.neighborhood %></strong>
+				</div>
+				<div id="r1c2" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<strong><%= data.price %></strong>
+				</div>
+			</div>
+			<hr class="nomargintop smallmarginbottom">
+			<div id="detailsRow2" class="row"> <!-- Row 2 -->
+				<div id="r2c1" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+					<em><%= data.address %></em>
+				</div>
+				<div id="r2c2" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+<%				if(data.sellOrRent == "Venta") { %>
+					<em><a class="mortgageDetailsDetails tooltip-calc" href="<%= data.price %>" name="<%= rate %>" data-toggle="tooltip" title="Estimado Detallado de Pago Mensual"><%= data.terms %>/mes</a></em>
+<%				} else { %>
+					<strong>Alquiler</strong>
+<%				} %>
+				</div>
+			</div>
+			<hr class="nomargintop smallmarginbottom">
+			<div id="detailsRow3" class="row"> <!-- Row 3 -->
+				<div id="r3c1" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+					<%
+						//START Quick Details
+						var bed = data.bedrooms;
+						if(bed != "") bed=bed+" Cuartos ";
+		
+						var bath = data.bathrooms;
+						if(bath != "") bath=bath+" Baños ";
+		
+						var sqft = data.sqft;
+						if(sqft == "" || sqft == "0") {
+							sqft="";
+						}
+						else 
+							sqft=sqft+" Sqft "; %>
+					<span class="label label-primary"><%= data.sellOrRent %></span>&nbsp;<span class="label label-success"><%= data.property %></span>&nbsp;<span class="label label-info"><%= bed %></span>&nbsp;<span class="label label-info"><%= bath %></span>
+				</div>
+				<div id="r3c2" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+					<%= data.fullNameRealtor %>
+				</div>
+			</div>
+				
+			<div id="detailsRow4" class="row"> <!-- Row 4 -->
+				<div id="r4c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="galleriaframe">
+						<div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+							<div class="slides"></div>
+							<h3 class="title"></h3>
+							<a class="prev">‹</a>
+							<a class="next">›</a>
+							<a class="play-pause"></a>
+							<ol class="indicator"></ol>
+						</div>
+						
+						<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+							<div class="slides"></div>
+							<h3 class="title"></h3>
+							<a class="prev">‹</a>
+							<a class="next">›</a>
+							<a class="close">×</a>
+							<a class="play-pause"></a>
+							<ol class="indicator"></ol>
+						</div>
+						
+						<div id="links">
+						 <% var photos = new Array();
+							   if(data.photo1) photos.push(data.photo1);
+							   if(data.photo2) photos.push(data.photo2);
+							   if(data.photo3) photos.push(data.photo3);
+							   if(data.photo4) photos.push(data.photo4);
+							   if(data.photo5) photos.push(data.photo5);
+							   for(var i=0;i<5;i++){
+									if(photos[i]){ %>
+								 		<a href="https://s3.amazonaws.com/clasinuevos/uploads/<%= photos[i] %>" title="<%=(data.neighborhood + ", " + data.address) %>">
+											<img class="img-responsive img-thumbnail thumb" src="https://s3.amazonaws.com/clasinuevos/uploads/<%= photos[i] %>" alt="Propiedad">
+										</a>
+								 <% }
+							   } %>	
+						</div>
+
+					</div>
+				</div>
+			</div>
+			   
+			<div id="detailsRow5" class="row"> <!-- Row 5 -->
+				<div id="r5c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<h4><span class="label label-primary">Detalles</span></h4><small><span id="r6c1a"><%= data.property %></span> - <span class="">Ubicada en</span>&nbsp;<span id="r6c1b"><%= data.neighborhood + ", " +data.address + ", " + data.town +", "+data.stateOwner %></span></small>
+				</div>
+			</div>
+			<hr class="nomargintop smallmarginbottom">
+			<div id="detailsRow6" class="row"> <!-- Row 6 -->
+				<div id="r6c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<h5></h5>
+				</div>
+			</div>
+
+			<div id="detailsRow7" class="row"> <!-- Row 7 -->
+				<div id="r7c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<blockquote id="r7c1b"><%= data.description %></blockquote>
+				</div>
+			</div>
+			
+			<hr class="nomargintop smallmarginbottom">
+			
+			<div id="detailsRow8" class="row"> <!-- Row 8 -->
+				<div id="r8c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<h4 class="minimarginbottom"><span class="label label-primary">Información Detallada</span></h4>
+				</div>
+			</div>
+			<div id="detailsRow9" class="row"> <!-- Row 9 -->
+				<div id="r9c1" class="col-lg-4 col-md-4 col-sm-8 col-xs-8">
+					<ul class="list-unstyled nomarginbottom">
+						<li id="r9l1"><span class="label label-info">Número de ID</span>&nbsp;<%= data.id %></li>
+						<li id="r9l1"><span class="label label-info">Precio</span>&nbsp;<%= data.price %></li>
+						<li id="r9l2"><span class="label label-info">Cuota</span>&nbsp;<%= data.fees %></li>
+						<li id="r9l6"><span class="label label-info">Negocio</span>&nbsp;<%= data.sellOrRent %></li>
+					</ul>
+				</div>
+				<div id="r9c2" class="col-lg-4 col-md-4 col-sm-8 col-xs-8">
+					<ul class="list-unstyled nomarginbottom">
+						<li id="r9l8"><span class="label label-info">Construida</span>&nbsp;<%= data.year %></li>
+						<li id="r9l9"><span class="label label-info">Zipcode</span>&nbsp;<%= data.zipcode %></li>
+						<li id="r9l10"><span class="label label-info">Pisos</span>&nbsp;<%= data.storie %></li>
+						<li id="r9l11"><span class="label label-info">Estacionamientos</span>&nbsp;<%= data.parking %></li>
+						
+					</ul>
+				</div>
+				<div id="r9c3" class="col-lg-4 col-md-4 col-sm-8 col-xs-8">
+					<ul class="list-unstyled nomarginbottom">
+						<li id="r9l5"><span class="label label-info">Propiedad</span>&nbsp;<%= data.property %></li>
+						<li id="r9l3"><span class="label label-info">Cuartos</span>&nbsp;<%= data.bedrooms %></li>
+						<li id="r9l4"><span class="label label-info">Baños</span>&nbsp;<%= data.bathrooms %></li>
+						<li id="r9l7"><span class="label label-info">Tamaño</span>&nbsp;<%= sqft %></li>
+					</ul>
+				</div>
+			</div>
+			<div id="detailsRow9" class="row"> <!-- Row 9 -->
+				<div id="r9c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<ul class="list-unstyled">
+						<li id="r9l12"><span class="label label-info">Accesorios</span>&nbsp;<%= data.accessories %></li>
+					</ul>
+				</div>
+			</div>		
+			
+			<hr class="nomargintop smallmarginbottom">
+			
+			<div id="detailsRow10" class="row"> <!-- Row 10 -->
+				<div id="r10c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<h4><span class="label label-primary">Información de Contacto</span></h4>
+				</div>
+			</div>
+			<div id="detailsRow11" class="row medpaddingbottom"> <!-- Row 11 -->
+				<div id="r11c1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<%					if(data.ownerOrRealtor == "Dueno") { %>					
+						<div id="r11l1"><span class="label label-info">Nombre</span>&nbsp;<%= data.fullNameOwner %></div>
+<%  					if(data.emailOwner != "") { %>	
+							<div id="r11l2"><span class="label label-info">Email</span>&nbsp;&nbsp;&nbsp;
+							<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#contactSeller">Email</button></div>
+<%  					} 
+						if(data.phoneOwner != "") { 
+	  						var phoneOwnerformatted = data.phoneOwner.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+%> 							<div id="r11l3"><span class="label label-info">Teléfono</span>&nbsp;<%= phoneOwnerformatted %></div> 
+<%						} %>
+<%					}
+					else { %>
+						<div id="r11l4"><span class="label label-info">Nombre Realtor</span>&nbsp;<%= data.fullNameRealtor %></div>
+<%  					if(data.emailRealtor != "") { %>			
+							<div id="r11l5"><span class="label label-info">Email Realtor</span>&nbsp;&nbsp;&nbsp;
+							<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#contactSeller">Email</button></div>
+<%						}
+	  					if(data.phoneRealtor != "") { 
+	  						var phoneRealtorformatted = data.phoneRealtor.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+%> 							<div id="r11l6"><span class="label label-info">Teléfono Realtor</span>&nbsp;<%= phoneRealtorformatted %></div> 
+<%						} %>						
+<%					} %>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="contactSeller" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <form id="messageContactForm" class="form-horizontal" role="form" action="/contactSeller">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="contactSeller">Mensaje al Vendedor</h4>
+			</div>
+		
+			<div class="modal-body">
+			
+				<div class="form-group">
+					<label for="messageName" class="col-lg-3 control-label">Nombre <i class="icon-asterisk icon-spin"></i></label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control validate[required]" id="messageName" name="name" placeholder="Su Nombre">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="messageEmail" class="col-lg-3 control-label">Email <i class="icon-asterisk icon-spin"></i></label>
+					<div class="col-lg-9">
+						<input type="email" class="form-control validate[required,custom[email]]" id="messageEmail" name="email" placeholder="Su Email">
+					</div>
+				</div>
+			
+				<div class="form-group">
+					<label for="messageInfo" class="col-lg-3 control-label">Mensaje <i class="icon-asterisk icon-spin"></i></label>
+					<div class="col-lg-9">
+						<textarea id="messageInfo" class="form-control validate[required] " rows="3" name="info" placeholder="Su Mensaje al Vendedor"></textarea>
+					</div>
+				</div>
+					
+			</div>
+		
+			<div class="modal-footer">
+				<input type="hidden" class="form-control" name="id" value="<%= data.id %>">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<button id="submitMessageContact" type="submit" class="btn btn-primary">Enviar</button>
+			</div>
+			
+		</form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

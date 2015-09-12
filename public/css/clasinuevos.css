@@ -1,0 +1,1505 @@
+body {
+	background-image:url("/img/sketch.jpg");
+	background-repeat:repeat;
+}
+
+/* LG -------------------------*/
+@media (min-width: 1200px){
+	.logo-responsive {
+		width:100%;
+		max-width:527px;
+		max-height: 112px;
+	}
+	
+	#migracionDrawer {
+		display:inline;
+	}
+	
+	#bienesRaicesDrawer {
+		display:inline;
+	}
+	
+	#financiamientoDrawer {
+		display:inline;
+	}
+	
+	.drawerAdjustments {
+		margin-right:0px;
+		margin-left:0px;
+	}
+	
+	.image-bucket {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		margin: 5px 5px 5px 0px;
+		padding: 5px 5px 5px 5px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		/* background-color: white; */
+		width:32.5%;
+	}
+	
+	#carouselMod {
+		bottom:25px;
+	}
+	
+	div.horizontalAd1 h3 i.leftIcon {
+		padding-right:150px;
+	}
+
+	div.horizontalAd1 h3 i.rightIcon {
+		padding-left:150px;
+	}
+	
+	div.horizontalAd2 h3 i.leftIcon {
+		padding-right:150px;
+	}
+
+	div.horizontalAd2 h3 i.rightIcon {
+		padding-left:150px;
+	}
+	
+	div.horizontalAd-information h3 i.leftIcon{
+		padding-right:150px;
+	}
+
+	div.horizontalAd-information h3 i.rightIcon{
+		padding-left:150px;
+	}
+	
+	a.smallpaddingLeftRightLogo {
+		padding-left:10px;
+		padding-right:10px;
+	}
+	
+	/* Menu Adjustments
+	---------------------------*/
+	.nav>li>a {
+		padding-left:15px;
+		padding-right:15px;
+	}
+	
+	.searchBottomPadding {
+		padding-bottom:0px;
+	}
+	
+	.logo-img-adj {
+		margin-bottom:0px;
+	}
+	
+	.dropdown-menu {
+		left:0;
+	}
+	
+	h1 {
+		font-size:36px;
+	}
+	
+	.linediv-l {
+		border-right: 1px #5371C5 solid;
+		padding-bottom: 0px;
+	}
+	
+	.linediv-r {
+		border-left: 1px #5371C5 solid;
+		padding-bottom: 10px;
+	}
+	
+	.linediv-c {
+		padding-bottom: 10px;
+	}
+	
+	/* Center Adjustments */
+	.center-share {
+		width:155px;
+		margin: 0 auto;
+	}
+
+	.center-bitcoin {
+		width:260px;
+		margin: 0 auto;
+	}
+
+	.center-progress {
+		width:430px;
+		margin: 0 auto;
+	}
+
+	.center-statistics {
+		width:430px;
+		margin: 0 auto;
+	}
+	
+	/* Margin Adjustments */
+	.xlargemarginbottom {
+		margin-bottom:50px;
+	}
+	
+	#float-img-left {
+		max-width:250px;
+		width:50%;
+		/*position:absolute;
+		margin-right:-725px;
+		margin-top:95px;*/
+		
+		position:absolute;
+		bottom:0%;
+		left:-30%;
+	}
+
+	#float-img-right {
+		max-width:150px;
+		width:100%;
+		/*position:absolute;
+		margin-left:491px;
+		margin-top:103px;*/
+		
+		position:absolute;
+		bottom:0%;
+		right:-15%;
+	}
+	
+	.featurecolor {
+		color:#29a8df;
+		/* text-shadow:1px 1px grey; */
+		font-size:34px;
+		font-weight: 900;
+	}
+	
+	.loginForm {
+		padding-left:50px;
+		padding-right:50px;
+	}
+}
+
+/* MD -------------*/
+@media (min-width: 970px) and (max-width: 1199px){
+	.logo-responsive {
+		width:100%;
+		max-width:527px;
+		max-height: 112px;
+	}
+	
+	#migracionDrawer {
+		display:inline;
+	}
+	
+	#bienesRaicesDrawer {
+		display:inline;
+	}
+	
+	#financiamientoDrawer {
+		display:inline;
+	}
+	
+	.drawerAdjustments {
+		margin-right:0px;
+		margin-left: 0px;
+	}
+	
+	.image-bucket {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		margin: 5px 5px 5px 0px;
+		padding: 5px 5px 5px 5px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		/* background-color: white; */
+		width:49%;
+	}
+	
+	#carouselMod {
+		bottom:25px;
+	}
+	
+	div.horizontalAd1 h3 i.leftIcon {
+		padding-right:100px;
+	}
+
+	div.horizontalAd1 h3 i.rightIcon {
+		padding-left:100px;
+	}
+	
+	div.horizontalAd2 h3 i.leftIcon {
+		padding-right:100px;
+	}
+
+	div.horizontalAd2 h3 i.rightIcon {
+		padding-left:100px;
+	}
+
+	div.horizontalAd-information h3 i.leftIcon{
+		padding-right:100px;
+	}
+
+	div.horizontalAd-information h3 i.rightIcon{
+		padding-left:100px;
+	}
+	
+	a.smallpaddingLeftRightLogo {
+		padding-left:10px;
+		padding-right:10px;
+	}
+	
+	/* Menu Adjustments
+	---------------------------*/
+	.nav>li>a {
+		padding-left:12px;
+		padding-right:12px;
+	}
+	
+	.searchBottomPadding {
+		padding-bottom:0px;
+	}
+	
+	.logo-img-adj {
+		margin-bottom:0px;
+	}
+	
+	.dropdown-menu {
+		left:0;
+	}
+	
+	h1 {
+		font-size:36px;
+	}
+	
+	#float-img-left {
+		max-width:250px;
+		width:35%;
+		/*position:absolute;
+		margin-left:-447px;
+		margin-top:192px;*/
+		
+		position:absolute;
+		bottom:-6%;
+		left:-31%;
+	}
+
+	#float-img-right {
+		max-width:150px;
+		width:20%;
+		/*position:absolute;
+		margin-left:267px;
+		margin-top:189px;*/
+		
+		position:absolute;
+		bottom:-6%;
+		right:-17%;
+	}
+	
+	.featurecolor {
+		color:#29a8df;
+		/* text-shadow:1px 1px grey; */
+		font-size:34px;
+		font-weight: 900;
+	}
+	
+	.loginForm {
+		padding-left:50px;
+		padding-right:50px;
+	}
+}
+
+/* SM -------------*/
+@media (min-width: 750px) and (max-width: 969px){
+
+	.logo-responsive {
+		width:100%;
+		max-width:527px;
+		max-height: 112px;
+	}
+	
+	.searchPadding {
+		padding-bottom:10px;
+	}
+	
+	#migracionDrawer {
+		display:none;
+	}
+	
+	#bienesRaicesDrawer {
+		display:none;
+	}
+	
+	#financiamientoDrawer {
+		display:none;
+	}
+	
+	.image-bucket {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		margin: 5px 5px 5px 0px;
+		padding: 5px 5px 5px 5px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		/* background-color: white; */
+		width:49%;
+	}
+	
+	#carouselMod {
+		bottom:15px;
+	}
+	
+	div.horizontalAd1 h3 i.leftIcon {
+		padding-right:50px;
+	}
+
+	div.horizontalAd1 h3 i.rightIcon {
+		padding-left:50px;
+	}
+	
+	div.horizontalAd2 h3 i.leftIcon {
+		padding-right:50px;
+	}
+
+	div.horizontalAd2 h3 i.rightIcon {
+		padding-left:50px;
+	}
+
+	div.horizontalAd-information h3 i.leftIcon{
+		padding-right:50px;
+	}
+
+	div.horizontalAd-information h3 i.rightIcon{
+		padding-left:50px;
+	}
+	
+	a.smallpaddingLeftRightLogo {
+		padding-left:10px;
+		padding-right:10px;
+	}
+	
+	/* Menu Adjustments
+	---------------------------*/
+	.nav>li>a {
+		padding-left:10px;
+		padding-right:10px;
+	}
+	
+	.searchBottomPadding {
+		padding-bottom:10px;
+	}
+	
+	.logo-img-adj {
+		margin-bottom:0px;
+	}
+	
+	.dropdown-menu {
+		left:0;
+	}
+	
+	h1 {
+		font-size:36px;
+	}
+	
+	.sm-text-adj {
+	 padding-bottom:35px;
+	 font-size: 25px;
+	}
+	
+	#float-img-left {
+		max-width:250px;
+		width:37%;
+		/*position:absolute;
+		margin-left:-374px;
+		margin-top:220px;*/
+		position:absolute;
+		bottom:-6%;
+		left:-18%;
+	}
+
+	#float-img-right {
+		max-width:150px;
+		width:21%;
+		/*position:absolute;
+		margin-left:201px;
+		margin-top:207px;*/
+		position:absolute;
+		bottom:-6%;
+		right:-6%;
+	}
+	
+	.featurecolor {
+		color:#29a8df;
+		/* text-shadow:1px 1px grey; */
+		font-size:34px;
+		font-weight: 900;
+	}
+}
+
+/* XS ------------- */
+@media (min-width: 480px) and (max-width: 749px){
+	.logo-responsive {
+		width:auto;
+		max-height: 60px;
+	}
+	
+	.searchPadding {
+		padding-bottom:10px;
+	}
+	
+	#migracionDrawer {
+		display:none;
+	}
+	
+	#bienesRaicesDrawer {
+		display:none;
+	}
+	
+	#financiamientoDrawer {
+		display:none;
+	}
+	
+	.image-bucket {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		margin: 5px 5px 5px 0px;
+		padding: 5px 5px 5px 5px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		/* background-color: white; */
+		width:100%;
+	}
+	
+	#carouselMod {
+		bottom:100px;
+	}
+	
+	div.horizontalAd1 h3 i.leftIcon {
+		display:none;
+	}
+
+	div.horizontalAd1 h3 i.rightIcon {
+		display:none;
+	}
+	
+	div.horizontalAd2 h3 i.leftIcon {
+		display:none;
+	}
+
+	div.horizontalAd2 h3 i.rightIcon {
+		display:none;
+	}
+	
+	div.horizontalAd-information h3 i.leftIcon{
+		display:none;
+	}
+
+	div.horizontalAd-information h3 i.rightIcon{
+		display:none;
+	}
+	
+	a.smallpaddingLeftRightLogo {
+		padding-left:10px;
+		padding-right:10px;
+	}
+	
+	/* Menu Adjustments
+	---------------------------*/
+	.nav>li>a {
+		padding-left:15px;
+		padding-right:8px;
+	}
+	
+    .searchBottomPadding {
+		padding-bottom:10px;
+	}
+	
+	.marginCalc {
+		margin-left:20px;
+		margin-right:20px;
+	}
+	
+	.logo-img-adj {
+		margin-bottom:40px;
+		max-height:80px;
+	}
+	
+	.dropdown-menu {
+		left:135px;
+	}
+	
+	h1 {
+		font-size:36px;
+	}
+	
+	#float-img-left {
+		max-width:250px;
+		width:38%;
+		/*position:absolute;
+		margin-left:-249px;
+		margin-top:300px;*/
+		position:absolute;
+		bottom:-6%;
+		left:-19%;
+	}
+
+	#float-img-right {
+		max-width:150px;
+		width:23%;
+		/*position:absolute;
+		margin-left:138px;
+		margin-top:294px;*/
+		position:absolute;
+		bottom:-6%;
+		right:-3%;
+	}
+	
+	.featurecolor {
+		color:#29a8df;
+		/* text-shadow:1px 1px grey; */
+		font-size:34px;
+		font-weight: 900;
+	}
+}
+
+/* XXS -------------*/
+@media (max-width: 479px){
+	.logo-responsive {
+		width:auto;
+		max-height: 50px;
+	}
+
+	.searchPadding {
+		padding-bottom:10px;
+	}
+	
+	#migracionDrawer {
+		display:none;
+	}
+	
+	#bienesRaicesDrawer {
+		display:none;
+	}
+	
+	#financiamientoDrawer {
+		display:none;
+	}
+	
+	div.loginPadding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+	
+	.image-bucket {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		margin: 5px 5px 5px 0px;
+		padding: 5px 5px 5px 5px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		/* background-color: white; */
+		width:100%;
+	}
+	
+	#carouselMod {
+		bottom:100px;
+	}
+	
+	div.horizontalAd1 h3 i.leftIcon {
+		display:none;
+		bottom:20px
+	}
+
+	div.horizontalAd1 h3 i.rightIcon {
+		display:none;
+		bottom:20px
+	}
+	
+	div.horizontalAd2 h3 i.leftIcon {
+		display:none;
+		bottom:20px
+	}
+
+	div.horizontalAd2 h3 i.rightIcon {
+		display:none;
+		bottom:20px
+	}
+	
+	div.horizontalAd-information h3 i.leftIcon{
+		display:none;
+		bottom:20px
+	}
+
+	div.horizontalAd-information h3 i.rightIcon{
+		display:none;
+		bottom:20px
+	}
+	
+	.hidden-xxs {
+		display:none;
+	}
+	
+	a.smallpaddingLeftRightLogo {
+		padding-left:8px;
+		padding-right:0px;
+	}
+	
+	/* Menu Adjustments
+	---------------------------*/
+	.nav>li>a {
+		padding-left:15px;
+		padding-right:5px;
+	}
+	
+	.xxsScreen {
+		display:none;
+	}
+	
+	.searchBottomPadding {
+		padding-bottom:10px;
+	}
+
+	#schedule_div {
+		display:none;
+	}
+
+	.marginCalc {
+		margin-left:20px;
+		margin-right:20px;
+		text-align:left;
+	}
+	
+	.logo-img-adj {
+		margin-bottom:30px;
+		max-height:50px;
+	}
+	
+	.dropdown-menu {
+		left:135px;
+	}
+	
+	h1 {
+		font-size:30px;
+	}
+	
+	.linediv-l {
+		border-bottom: 1px #5371C5 solid;
+		padding-bottom: 0;
+	}
+	.linediv-r {
+		border-top: 1px #5371C5 solid;
+		padding-bottom: 0;
+	}
+	.linediv-c {
+		padding-bottom: 0;
+	}
+	
+	/* Center Adjustments */
+	.center-share {
+		width:155px;
+		margin: 0 auto;
+	}
+	
+	/* Margin Adjustments */
+	.xlargemarginbottom {
+		margin-bottom:10px;
+	}
+	
+	 #maintext {
+	 font-text:30px;
+	}
+	
+	.xs-text-adj {
+	 padding-bottom:30px;
+	}
+	
+	#float-img-left {
+		max-width:250px;
+		width:40%;
+		/*position:absolute;
+		margin-left:-160px;
+		margin-top:312px;*/
+		position:absolute;
+		bottom:-6%;
+		left:-21%;
+	}
+
+	#float-img-right {
+		max-width:150px;
+		width:24%;
+		/*position:absolute;
+		margin-left:100px;
+		margin-top:304px;*/
+		position:absolute;
+		bottom:-6%;
+		right:-7%;
+	}
+	
+	.featurecolor {
+		color:#29a8df;
+		/* text-shadow:1px 1px grey; */
+		font-size:29px;
+		font-weight: 900;
+	}
+}
+
+/* Center Adjustments 
+-----------------------------
+-----------------------------
+ * Wrap your Google Maps embed in a `.google-map-canvas` to reset Bootstrap's
+ * global `box-sizing` changes. You may optionally need to reset the `max-width`
+ * on images in case you've applied that anywhere else. (That shouldn't be as
+ * necessary with Bootstrap 3 though as that behavior is relegated to the
+ * `.img-responsive` class.)
+ */
+
+.google-map-canvas,
+.google-map-canvas * { .box-sizing(content-box); }
+
+/* Optional responsive image override */
+img { max-width: none; }
+
+
+/* Center Adjustments 
+-----------------------------
+-----------------------------*/
+.carousel-caption {
+	right:0px;
+	left:0px;
+}
+
+#signupEmail {
+	display:inline;
+	width:auto;
+}
+
+.video, .thermometer, .order, .social, .statistics, .center-text {
+	text-align: center;
+}
+
+div.addthis_toolbox {
+	width:130px;
+	margin: 0 auto;
+}
+
+/* Adjustment to Logo */
+.toolspinimages {
+	width:105px;
+	margin: 0 auto;
+}
+
+.linearlogocenter {
+	margin: 0 auto;
+	width:100%;
+}
+
+.ad-responsive {
+	width:100%;
+	height:auto;
+}
+
+.fixed-ad {
+	position:fixed;
+}
+
+.center-switch {
+	width:245px;
+	margin: 0 auto;
+}
+
+.center-fields {
+	margin: 0 auto;
+}
+
+/* Color Adjustments
+---------------------------------
+---------------------------------*/
+.highlightBkg {
+	/* background-image:linear-gradient(to bottom,#ffffff,#ffffff,#f6f4e6,#ffffff,#ffffff); */ /* #78CA13 #f6f4e6 */
+	background-image:linear-gradient(to bottom,#f6f4e6,tan);  /* #78CA13 #f6f4e6 */ /* #FBEAD5, tan */
+
+	padding-top:10px;
+	padding-bottom:10px;
+	border-radius: 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.well{
+	background-image:linear-gradient(to bottom,#FCFCF7 0,#ffffff 100%);
+}
+
+.colorWhite {
+	color:white;
+}
+
+.icon-certificate {
+	/* color:#78CA13; */	/* Green */
+	color:#78CA13;
+}
+
+.icon-map-marker {
+	/* color:#ec971f; */
+	color:#78CA13;
+}
+
+.icon-eye-open {
+	color:black;
+}
+
+.icon-remove-sign {
+	color:red;
+}
+
+.icon-pushpin {
+	color:black;
+}
+
+.icon-hand-down, .icon-hand-right, .icon-hand-left {
+	color:black;
+}
+
+.textVerMapa {
+	color:black;
+}
+
+a.detailsBtn {
+	color:#eb9316;
+}
+
+.tabicons {
+	color:black;
+}
+
+hr {
+	border-top-color: rgb(212, 212, 212);
+}
+
+.pagination>.active>a,
+.pagination>.active>span, 
+.pagination>.active>a:hover, 
+.pagination>.active>span:hover, 
+.pagination>.active>a:focus, 
+.pagination>.active>span:focus {
+	background-color: #ec971f;
+	border-color: #eb9316;
+}
+
+.panel-info>.panel-heading {
+	border: 1px solid #d4ccb0;
+	background: #ece8da url(images/ui-bg_gloss-wave_100_ece8da_500x100.png) 50% 50% repeat-x;
+	color: #433f38;
+	font-weight: bold;
+}
+
+.panel-info {
+	border: 1px solid #dfd9c3;
+}
+
+.panel-warning {
+	border: 1px solid tan;
+}
+
+.panel-warning>.panel-heading {
+	background-image: -webkit-gradient(linear,left 0,left 100%,from(tan),to(rgb(184, 150, 106)));
+	background-image: -webkit-linear-gradient(top,tan,0%,rgb(184, 150, 106),100%);
+	background-image: -moz-linear-gradient(top,tan 0,rgb(184, 150, 106) 100%);
+	background-image: linear-gradient(to bottom,tan 0,rgb(184, 150, 106) 100%);
+	background-repeat: repeat-x;
+	border-color: rgb(184, 150, 106);
+}
+
+#cambiarFotoBtn:hover {
+	color:red;
+}
+
+#cambiarFotoBtn {
+	color:white;
+}
+
+.loginDrawer {
+	background-image:url("/img/loginbkg.png");
+	background-position:50% top;
+	background-repeat:repeat;
+	
+}
+
+.modal-header {
+	color:red;
+}
+
+.icon-asterisk {
+	color:red;
+}
+
+.popover {
+	color:#ff7257;
+	text-shadow:1px 1px grey;
+	font-size:20px;
+	text-align:center;
+}
+.statistics h3, .statistics p {
+	color: grey;
+}
+
+/* Progress Bar Adjustments */
+.progress {
+	background:#F9B98A;
+}
+
+/* Adjustment to Share Section --*/
+.shares {
+	padding:15px 20px;
+	color:#777;
+	background-color:#fafafa;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #e5e5e5;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:22px;
+}
+
+.navbar-header a i{
+	color:#29a8df;
+}
+
+.spinnercolor {
+	color:#29a8df;
+}
+
+.logocolors {
+	color:#ff7257;
+	text-shadow:1px 1px gray;
+}
+
+.pureblack {
+	color:#000000;
+}
+
+.bitcoincolor {
+	color:#F7931A;
+	text-shadow:1px 1px grey;
+}
+
+.logocolors-noshadow {
+	color:#ff7257;
+}
+
+/* Size Adjustments
+---------------------------------
+---------------------------------*/
+.pageSpinner {
+	height:35px
+}
+.toolsize {
+	max-width:261px;
+}
+
+.spinsize {
+	max-width:261px;
+}
+
+.thumb {
+	max-height:100px;
+}
+
+.medthumb {
+	max-height:155px;
+	margin: 0px auto;
+	display:block;
+}
+
+.largethumb {
+	max-height: 300px;
+	margin: 0px auto;
+	display:block;
+}
+
+#totalSaleText {
+	font-size:15px;
+}
+/* Font Adjustments
+---------------------------------
+---------------------------------*/
+.product-tier {
+	font-size:30px;
+}
+
+/* Shape Drawing
+---------------------------------
+---------------------------------*/
+
+.migracion {
+	background: #F5F3E5;
+	background: #f5f3e5 url(images/ui-bg_spotlight_100_f5f3e5_600x600.png) 50% 2% repeat-x;
+}
+
+.ad1-placeholder {
+	height: 400px;
+	width: 130px;
+	border-radius: 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	background: #78CA13;
+	position:fixed;
+}
+
+div.ad1-placeholder h3 {
+	padding-top:80px;
+}
+
+.ad2-placeholder {
+	height: 400px;
+	width: 130px;
+	border-radius: 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	background: #EB9316;  /* EB9316 */
+	position:fixed;
+	display:none;
+}
+
+div.ad2-placeholder h3 {
+	padding-top:80px;
+}
+
+.ad-information {
+	height: 400px;
+	width: 130px;
+	border-radius: 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	background: #F5F3E5;
+	position:fixed;
+	display:none;
+}
+
+div.ad-information h3 {
+	padding-top:80px;
+}
+
+/* MAIN LOGO  */
+.horizontalAd1 {
+	max-height: 200px;
+	max-width: 1140px;
+	width:auto;
+	height:auto;
+	border-radius: 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	background: #78CA13;
+}
+
+.horizontalAd2 {
+	max-height: 200px;
+	max-width: 1140px;
+	border-radius: 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	background: #EB9316;  /* EB9316 */
+	display:none;
+}
+
+.horizontalAd-information {
+	max-height: 200px;
+	max-width: 1140px;
+	border-radius: 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	background: #F5F3E5;
+	display:none;
+}
+
+/* MIDDLE HORIZONTAL AD */
+.horizontalTopAd1, .horizontalBotAd1  {
+	max-height: 110px;
+	max-width: 1140px;
+	background: darkslategrey;	/* 78CA13 */
+	color:white;
+	margin-left:15px;
+	margin-right:15px;
+}
+
+.horizontalTopAd2, .horizontalBotAd2 {
+	max-height: 110px;
+	max-width: 1140px;
+	background: saddlebrown;  /* EB9316 */
+	display:none;
+	color:white;
+	margin-left:15px;
+	margin-right:15px;
+}
+
+.horizontalTopAd-information, .horizontalBotAd-information {
+	max-height: 110px;
+	max-width: 1140px;
+	background: white;
+	display:none;
+	
+	margin-left:15px;
+	margin-right:15px;
+}
+
+/* Animation - Rotation 
+---------------------------------
+---------------------------------*/
+#spinner {
+	-webkit-animation: rotation 2s infinite linear;
+	max-width:120px;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(359deg);}
+}
+
+/* Individual VISIBILITY 
+---------------------------------
+---------------------------------*/
+#telGroup {
+	display:none;
+}
+
+/* Individual Adjustments 
+---------------------------------
+---------------------------------*/
+.xsMenu {
+	color:white;
+	font-size:9px;
+	margin-top:2px;
+	margin-bottom:0px;
+}
+
+.xsMenuBtn {
+	margin-top:4px;
+	margin-bottom:3px;
+	margin-right:7px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.iconAdjust {
+	margin-top:-5px;
+	color:#78CA13;
+}
+
+/* Avoid Wizard From overflowing.... */
+#MyWizard {
+	float:none;
+}
+
+#btcDrawer a, #emailDrawer a, #faqsDrawer a, #loginDrawer a{
+	text-decoration:none;
+}
+
+#float-img-2 {
+	max-width:130px;
+	width:100%;
+	position:absolute;
+	margin-left:-726px;
+	margin-top:111px;
+}
+
+#float-img-3 {
+	max-width:50px;
+	width:100%;
+	position:absolute;
+	margin-left:-617px;
+	margin-top:134px;
+}
+
+.user-welcome {
+	padding-top:15px;
+	color:white;
+	font-weight:500;
+	list-style:none;
+	text-decoration:none;
+}
+
+.user-welcome a{
+	color:white;
+}
+
+.user-welcome li a, a:hover{
+	text-decoration:none;
+}
+
+.user-welcome li a .caret{
+	border-top:4px solid white;
+}
+
+/* Image-Adjustments 
+---------------------------------
+---------------------------------*/
+#myCarousel {
+	background-image:url("/img/bkgimg2_1920x733_90ppi_80.jpg");
+	background-size:100% 100%;
+	visibility:hidden;
+}
+
+.carousel .item {
+	background-color:transparent;
+}
+
+#maintext {
+	text-shadow:5px 3px 5px rgba(0,0,0,1);
+}
+
+.iframe-rwd  {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 50px;
+	height: 0;
+	overflow: hidden;
+}
+.iframe-rwd iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Decoration-Adjustments 
+---------------------------------
+---------------------------------*/
+.topbar {
+	background-image: -webkit-repeating-linear-gradient(right, 
+	rgb(126, 179, 71), 
+	rgb(126, 179, 71) 50px, 
+	rgb(188, 199, 214) 50px, 
+	rgb(188, 199, 214) 100px, 
+	rgb(129, 205, 231) 100px, 
+	rgb(129, 205, 231) 150px, 
+	rgb(255, 226, 171) 150px, 
+	rgb(255, 226, 171) 200px, 
+	rgb(209, 223, 224) 200px, 
+	rgb(209, 223, 224) 250px);
+
+	background-position: initial;
+	background-size: initial;
+	background-repeat: initial;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: initial;
+	
+	background: -o-repeating-linear-gradient(to right,
+	#7eb347,#7eb347 50px,#bcc7d6 50px,#bcc7d6 100px,
+	#81cde7 100px,#81cde7 150px,#ffe2ab 150px,
+	#ffe2ab 200px,#d1dfe0 200px,#d1dfe0 250px);
+	
+	display: block;
+	width: 100%;
+	height: 5px;
+	margin-bottom: -1px;
+}
+
+/* Visibility-Adjustments 
+---------------------------------
+---------------------------------*/
+.hidden {
+	visibility:hidden;
+}
+
+/* Micro-Adjustments 
+---------------------------------
+---------------------------------*/
+.right {
+	float:right;
+}
+
+.left {
+	float:left;
+}
+
+/* Padding Adjustments -----------*/
+.minipaddingall {
+	padding:5px;
+}
+
+.smallpaddingall {
+	padding:10px;
+}
+
+.largepaddingall {
+	padding:30px;
+}
+
+.nopaddingall {
+	padding:0px;
+}
+
+.nopaddingleft {
+	padding-left:0;
+}
+
+.smallpaddingleft {
+	padding-left:10px;
+}
+
+.medpaddingleft {
+	padding-left:20px;
+}
+
+.largepaddingleft {
+	padding-left:30px;
+}
+
+.xlargepaddingsides {
+	padding-left:50px;
+	padding-right:50px;
+}
+
+.nopaddingright {
+	padding-right:0;
+}
+
+.minipaddingright {
+	padding-right:3px;
+}
+
+.smallpaddingright {
+	padding-right:10px;
+}
+
+.medpaddingright {
+	padding-right:20px;
+}
+
+.largepaddingright {
+	padding-right:30px;
+}
+
+.smallpaddingtop {
+	padding-top:10px;
+}
+
+.minipaddingtop {
+	padding-top:5px;
+}
+
+.largepaddingtop {
+	padding-top:30px;
+}
+
+.medpaddingtop {
+	padding-top:20px;
+}
+
+.nopaddingtop {
+	padding-top:0;
+}
+
+.minipaddingbottom {
+	padding-bottom:5px;
+}
+
+.smallpaddingbottom {
+	padding-bottom:10px;
+}
+
+.smal-medpaddingbottom {
+	padding-bottom:15px;
+}
+
+.nopaddingbottom {
+	padding-bottom:0px;
+}
+
+.largepaddingbottom {
+	padding-bottom:30px;
+}
+
+.xlargepaddingbottom {
+	padding-bottom:50px;
+}
+
+.medpaddingbottom {
+	padding-bottom:20px;
+}
+
+/* Margin Adjustments ------------*/
+.nomargintop {
+	margin-top:0;
+}
+
+.minimarginbottom {
+	margin-bottom:5px;
+}
+
+.smallmargintop {
+	margin-top:10px;
+}
+
+.medmargintop {
+	margin-top:20px;
+}
+
+.largemargintop {
+	margin-top:30px;
+}
+
+.nomarginbottom {
+	margin-bottom:0px;
+}
+
+.smallmarginbottom {
+	margin-bottom:10px;
+}
+
+.medmarginbottom {
+	margin-bottom:20px;
+}
+
+.largemarginbottom {
+	margin-bottom:30px;
+}
+
+.medmarginright {
+	margin-right:20px;
+}
+
+.medmarginleft {
+	margin-left:20px;
+}
+
+.largemarginright {
+	margin-right:30px;
+}
+
+.nomarginall {
+	margin:0;
+}
+.options-divider {
+	margin: 40px 40px;
+}
+
+.medwidth {
+	width:120px;
+}
+
+.lower {
+	margin: 0 auto;
+}
+
+/* Custom button
+-------------------------------------------------- */
+
+/* Set the hover state */
+/* An easy hover state is just to move the gradient up a small amount. Add other embellishments as you see fit. */
+.btn-clasinuevos:hover {
+  background-position: 0 -15px;
+}
+
+/* Apply the custom-colored gradients */
+/* Note: you'll need to include all the appropriate gradients for various browsers and standards. */
+.btn-clasinuevos {
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#78ca13), to(#5CB22E)); /* 449d44 */
+  background-image: -webkit-linear-gradient(top, #78ca13, 0%, #5CB22E, 100%);
+  background-image: -moz-linear-gradient(top, #78ca13 0%, #5CB22E 100%);
+  background-image: linear-gradient(to bottom, #78ca13 0%, #5CB22E 100%);
+  background-repeat: repeat-x;
+  border-color: #419641;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff78ca13', endColorstr='#ff5CB22E', GradientType=0);
+}
+
+/* Override base .btn styles */
+/* Apply text and background changes to three key states: default, hover, and active (click). */
+.btn-clasinuevos,
+.btn-clasinuevos:hover,
+.btn-clasinuevos:active,
+.btn-clasinuevos.active {
+  background-color: #5CB22E;
+  border-color: #419641;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}

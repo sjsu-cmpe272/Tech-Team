@@ -1,0 +1,115 @@
+<!-- Custom SWITCH style -->
+<link href="/css/ui.switchbutton.css" rel="stylesheet">
+
+<form id="search" class="form" method="post" action="/busqueda">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="text-center nomarginall"><i class="icon-search icon-large left iconAdjust"></i> Búsqueda de Propiedades</h4>
+		</div>
+		<div class="panel-body nopaddingbottom">
+			<div class="container">
+				<!--Primera Fila-->
+				<div class="row smallpaddingbottom">
+					<div class="col-lg-4 col-md-5 col-sm-5">
+						<input type="checkbox" name="sellRentSwitch" id="sellRentSwitch">
+						<input type="hidden" name="switch" id="ventaAlquilerSwitch" val="Venta">
+						<input type="hidden" name="sort" id="sort" val="destacados">
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-7 col-xs-12 searchBottomPadding">
+						<input class="form-control" type="text" placeholder="Urbanización, Barrio o Calle" name="address">
+					</div>
+					<div class="col-lg-4 col-md-3">
+						<select class="form-control" id="townSearch" name="town" form="search"></select>
+					</div>
+				</div>
+				<!--Segunda Fila-->
+				<div class="row smallpaddingbottom">
+					<div class="col-lg-4 col-md-4 searchPadding">
+						<select class="form-control" name="cuartos" form="search">
+							<option value="">Cuartos</option>
+							<option value="all">Todos</option>
+							<option value="1">1C</option>
+							<option value="2">2C</option>
+							<option value="3">3C</option>
+							<option value="4">4C</option>
+							<option value="5">5C</option>
+						</select>
+					</div>
+					<div class="col-lg-4 col-md-4 searchPadding">
+						<select class="form-control" name="banos" form="search">
+							<option value="">Baños</option>
+							<option value="all">Todos</option>
+							<option value="1">1B</option>
+							<option value="2">2B</option>
+							<option value="3">3B</option>
+							<option value="4">4B</option>
+							<option value="5">5B</option>
+						</select>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<select class="form-control" name="propiedad" form="search">
+							<option value="">Tipo de Propiedad</option>
+							<option value="all">Todos</option>
+							<option value="Casa">Casas</option>
+							<option value="Multi-familiar">Casa Multi-Familiar</option>
+							<option value="Apartamento">Apartamento</option>
+							<option value="Terreno">Terreno</option>
+							<option value="Condominio">Condominio</option>
+							<option value="Inversion">Inversión</option>
+						</select>
+					</div>
+				</div>
+				<!--Third Fila-->
+				<div class="row smal-medpaddingbottom">
+					<div class="col-lg-4 col-md-4 searchPadding">
+						<select class="form-control" name="area" form="search">
+							<option value="">Area</option>
+							<option value="all">Todos</option>
+							<option value="250">250+ sqft</option>
+							<option value="500">500+ sqft</option>
+							<option value="1000">1,000+ sqft</option>
+							<option value="1250">1,250+ sqft</option>
+							<option value="1500">1,500+ sqft</option>
+							<option value="1750">1,750+ sqft</option>
+							<option value="2000">2,000+ sqft</option>
+							<option value="2250">2,250+ sqft</option>
+							<option value="2500">2,500+ sqft</option>
+							<option value="2750">2,750+ sqft</option>
+							<option value="3000">3,000+ sqft</option>
+							<option value="3250">3,250+ sqft</option>
+							<option value="3500">3,500+ sqft</option>
+							<option value="3750">3,750+ sqft</option>
+							<option value="4000">4,000+ sqft</option>
+							<option value="5000">5,000+ sqft</option>
+							<option value="10000">10,000+ sqft</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-2 searchPadding">
+						<input class="form-control" type="text" placeholder="Min $" name="min" value="">
+					</div>
+					<div class="col-lg-2 col-md-2 searchPadding">
+						<input class="form-control" type="text" placeholder="Max $" name="max" value="">
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<button id="searchBtn" type="submit" class="btn btn-clasinuevos btn-large form-control" value="Buscar"><i class="icon-search"></i>  Buscar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- Modal Spinner-->
+<div class="modal fade" id="spinnerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<i class="icon-refresh icon-spin icon-4x"></i>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- PUBLISH SCRIPT -->    
+<script src="/js/search.js"></script>
