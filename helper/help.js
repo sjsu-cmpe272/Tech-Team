@@ -126,7 +126,7 @@ exports.storeData = function(req,savedUserId,chargeId, callback) {
 		callback(savedData,error);
 		
 	}).error(function(error) {
-		console.log("Error Storing Classified Info. Msg: "+error);
+		console.log("Error Storing Classified Info. Msg: "+JSON.stringify(error));
 		responseMsg = "error";
 		
 		callback(error,error);

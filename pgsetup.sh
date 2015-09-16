@@ -1,29 +1,59 @@
 #!/bin/bash
 # Set up postgres db for local debugging.
-# 
-# Unlike MySQL, PostgreSQL makes it harder to set blank passwords or set
-# passwords from the command line.
-#
-# See here for background:
-# stackoverflow.com/questions/5421807/set-blank-password-for-postgresql-user
-# dba.stackexchange.com/questions/14740/how-to-use-psql-with-no-password-prompt
-# postgresql.1045698.n5.nabble.com/assigning-password-from-script-td1884293.html
-#
-# Thus what we'll do is use the .pgpass file as our single point of
-# truth, for both setting up postgres and then accessing it later via
-# sequelize. We can also symlink this file into the home directory.
 
 # Install postgres
-#sudo apt-get install -y postgresql postgresql-contrib
+echo
+echo Install PostgreSQL
+echo
+
+echo Purge and Autoremove first...
+sudo apt-get purge postgr*
+sudo apt-get autoremove
+
+echo
+echo Install Synaptic...
+echo
+
+sudo apt-get install synaptic
+
+# Followed these instructions to install Postgress for UBUNTU 14.04
+# http://www.postgresql.org/download/linux/ubuntu/
+# Created a file:sudo touch /etc/apt/sources.list.d/pgdg.list
+# Changed Permission: sudo chmod 777 /etc/apt/sources.list.d/pgdg.list
+# Added this line using nano: deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main
+
+echo
+echo Import Repository...
+echo
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+  sudo apt-key add -
+
+echo
+echo Update...
+echo
+
+sudo apt-get update
+
+echo
+echo Install PostgreSQL...
+echo
+sudo apt-get install postgresql-9.4
 
 # Symlink into home.
-# Note the use of backticks, PWD, and the -t flag.
+echo
+echo Setting Symlink into HOME...
+echo
+
 ln -sf `ls $PWD/.pgpass` -t $HOME
 chmod 600 $HOME"/.pgpass"
 
 # Extract variables from the .pgpass file
 # stackoverflow.com/a/5257398
-# goo.gl/X51Mwz
+echo
+echo Extracting Variables from .pgpass...
+echo
+
 PGPASS=`cat .pgpass`
 TOKS=(${PGPASS//:/ })
 PG_HOST=${TOKS[0]}
@@ -32,13 +62,13 @@ PG_DB=${TOKS[2]}
 PG_USER=${TOKS[3]}
 PG_PASS=${TOKS[4]}
 
-# Now set up the users
-#
-# If you don't type in the password right, easiest is to change the value in
-# pgpass and try again. You can also delete the local postgres db
-# if you know how to do that. 
-echo -e "\n\nINPUT THE FOLLOWING PASSWORD TWICE BELOW: "${PG_PASS}
-# sudo -u postgres createuser -U postgres -E -P -s $PG_USER
+# Set up the Users and Database
+echo
+echo Setup User and Database
+echo
+
+echo -e "\n\nINPUT THE FOLLOWING PASSWORD TWICE BELOW: "${PG_PASS} ${PG_USER} ${PG_DB}
+sudo -u postgres createuser -U postgres -E -P -s $PG_USER
 sudo -u postgres createdb -U postgres -O $PG_USER $PG_DB
 
 # Test that it works.
