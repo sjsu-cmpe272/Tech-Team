@@ -1,44 +1,11 @@
 #!/bin/bash
 # Set up postgres db for local debugging.
 
-# Install postgres
-echo
-echo Install PostgreSQL
-echo
-
-echo Purge and Autoremove first...
-sudo apt-get purge postgr*
-sudo apt-get autoremove
-
-echo
-echo Install Synaptic...
-echo
-
-sudo apt-get install synaptic
-
-# Followed these instructions to install Postgress for UBUNTU 14.04
-# http://www.postgresql.org/download/linux/ubuntu/
-# Created a file:sudo touch /etc/apt/sources.list.d/pgdg.list
-# Changed Permission: sudo chmod 777 /etc/apt/sources.list.d/pgdg.list
-# Added this line using nano: deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main
-
-echo
-echo Import Repository...
-echo
-
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
-  sudo apt-key add -
-
-echo
-echo Update...
-echo
-
-sudo apt-get update
-
 echo
 echo Install PostgreSQL...
 echo
-sudo apt-get install postgresql-9.4
+
+sudo apt-get install -y postgresql postgresql-contrib
 
 # Symlink into home.
 echo
@@ -75,3 +42,12 @@ sudo -u postgres createdb -U postgres -O $PG_USER $PG_DB
 # Note that the symlinking of pgpass into $HOME should pass the password to psql and make these commands work. 
 echo "CREATE TABLE phonebook(phone VARCHAR(32), firstname VARCHAR(32), lastname VARCHAR(32), address VARCHAR(64));" | psql -d $PG_DB -U $PG_USER
 echo "INSERT INTO phonebook(phone, firstname, lastname, address) VALUES('+1 123 456 7890', 'John', 'Doe', 'North America');" | psql -d $PG_DB -U $PG_USER
+
+# Set up the Users and Database
+echo
+echo Setup PG and PG-HSTORE and SEQUELIZE
+echo
+
+sudo npm install pg --save
+sudo npm install pg-hstore --save
+sudo npm install sequelize --save

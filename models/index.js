@@ -28,7 +28,7 @@ if (!global.hasOwnProperty('db')) {
             protocol: 'postgres',
             port:     port,
             host:     host,
-            logging:  true //false
+            logging:  console.log
         };
 
         sq = new Sequelize(dbname, user, password, config);
@@ -65,7 +65,7 @@ if (!global.hasOwnProperty('db')) {
             protocol: 'postgres',
             port:     port,
             host:     host,
-            logging:  true //false
+            logging:  console.log
         };
         var sq = new Sequelize(dbname, user, password, config);
         console.log("We are configuring the db variable...");

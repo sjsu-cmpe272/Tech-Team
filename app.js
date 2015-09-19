@@ -25,9 +25,8 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 8080);
 
-// Middlewares:
 /*
-//  ***** Remove comments for production *****
+//  ***** Remove comments for production for us of https *****
 
  app.use(function(req, res, next) {
     if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
@@ -38,6 +37,7 @@ app.set('port', process.env.PORT || 8080);
  });
 */
 
+// Middlewares:
 app.use(require('serve-static')(__dirname + '/public'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
