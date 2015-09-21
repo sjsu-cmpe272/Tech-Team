@@ -22,23 +22,31 @@ $(document).ready(function(){
 	
 	/* Initialization get Twitter credentials from server
 	--------------------------------------------*/
-    $.post('/gettoken2', { id: null }, function(data) {
-        if(data == "error") {
-            $('#tokenMessage').html("<p>"+data+"</p>");
-            console.log('error');
-            $('#twitterBox').removeClass("hidden");
-        }
-        else {
-            $('#tokenMessage').html("<p>Token: "+data+"</p>");
-            $('#twitterBox').removeClass("hidden");
-        }
-        $('#tokenMessage').show(200);
+    $("#tweetBtn").click(function (e) {
+        e.preventDefault();
+        var message = $("#status").val();
+        $.post('/tweetStatus', { status: message}, function(data) {
+            if(data == "error") {
+                $('#tokenMessage').html("<p>Tweet was NOT possible! Try Again</p>");
+                console.log('error');
+                $('#twitterBox').removeClass("hidden");
+            }
+            else {
+                $('#tokenMessage').html("<p>The following message was Tweeted: <br><strong>"+message+"</strong></p>");
+                $('#twitterBox').removeClass("hidden");
+                $("#status").val("");
+            }
+            $('#tokenMessage').show(200);
+        });
     });
     
 	/* Initial State for DOM Items
 	-------------------------------------------- */
 	//Form Validation Sign-Up
     $("#signnewForm").validationEngine('attach', {promptPosition : "topLeft"});
+
+    //Form Validation tweet form
+    $("#tweetForm").validationEngine('attach', {promptPosition : "topLeft"});
 
 	/* Response to actions in DOM */
 	$("#closeLogin").click(function(e) {

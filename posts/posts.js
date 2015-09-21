@@ -264,7 +264,7 @@ module.exports = function(app, db, passport){
     });
 
     // '/gettoken' - Render Details View from results
-    app.post('/gettoken2', function (req, res) {
+    app.post('/tweetStatus', function (req, res) {
         var oauth = new OAuth.OAuth(
             'https://api.twitter.com/oauth/request_token',
             'https://api.twitter.com/oauth/access_token',
@@ -275,13 +275,14 @@ module.exports = function(app, db, passport){
             'HMAC-SHA1'
         );
         oauth.post(
-            'https://api.twitter.com/1.1/statuses/update.json?status=TEST',
+            'https://api.twitter.com/1.1/statuses/update.json',
             '3580241858-nZBlvSAOoyXnIyfyqbzySTHG9KANUN92MQD6A4D', //test user token
             'iTJRNT4Tpjn5AN8rHbNWDJt8U3EyXSaxlsa3YgoHfaP4Y', //test user secret
-            function (e, data, res) {
+            {"status":req.body.status},
+            function (e, data) {
                 if (e) console.error(e);
                 console.log(require('util').inspect(data));
-                done();
+                res.send(data);
             });
     });
 
