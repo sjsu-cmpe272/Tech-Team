@@ -212,7 +212,7 @@
 
                     <!-- Twitters REST APIs Calls
                     ++++++++++++++++++++++++++++++++++++++ -->
-                    <div id="tweet" class="col-md-6">
+                    <div id="tweet" class="col-md-6 center-text">
 
                         <form id="tweetForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/tweetStatus">
                             <h4 class="logocolors-noshadow center-text nomargintop">POST statuses/update API</h4>
@@ -226,8 +226,21 @@
                         </form>
 
                         <div id="twitterBox" class="hidden drawerAdjustments">
-                            <div id="tokenMessage"><div class='text-center largemargintop'><h1>Loading... <i class='icon-refresh icon-spin'></i></h1></div></div>
+                            <div id="tweetMessage"><div class='text-center largemargintop'><h1>Loading... <i class='icon-refresh icon-spin'></i></h1></div></div>
                         </div>
+
+                    </div>
+
+                    <div id="friendList" class="col-md-6 center-text">
+
+                        <h4 class="logocolors-noshadow center-text nomargintop">GET Friend/list API</h4>
+
+                        <div id="friendListBox" class="hidden drawerAdjustments">
+                            <div id="friendListMessage">
+                            </div>
+                        </div>
+                        <br>
+                        <button id="getFriendListBtn" type="submit" class="btn btn-clasinuevos">Get Friend List</button>
 
                     </div>
 

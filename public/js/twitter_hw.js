@@ -20,23 +20,53 @@ $(document).ready(function(){
 	-------------------------------------------- */
 	$("#myCarousel").css("visibility", "visible");
 	
-	/* Initialization get Twitter credentials from server
+	/* Tweet a Message using the server
 	--------------------------------------------*/
     $("#tweetBtn").click(function (e) {
         e.preventDefault();
         var message = $("#status").val();
         $.post('/tweetStatus', { status: message}, function(data) {
             if(data == "error") {
-                $('#tokenMessage').html("<p>Tweet was NOT possible! Try Again</p>");
+                $('#tweetMessage').html("<p>Tweet was NOT possible! Try Again</p>");
                 console.log('error');
                 $('#twitterBox').removeClass("hidden");
             }
             else {
-                $('#tokenMessage').html("<p>The following message was Tweeted: <br><strong>"+message+"</strong></p>");
+                $('#tweetMessage').html("<p>The following message was Tweeted: <br><strong>"+message+"</strong></p>");
                 $('#twitterBox').removeClass("hidden");
                 $("#status").val("");
             }
             $('#tokenMessage').show(200);
+        });
+    });
+
+    /* Get Friend list from Twitter
+     --------------------------------------------*/
+    $("#getFriendListBtn").click(function (e) {
+        e.preventDefault();
+
+        // Variabble to get friend list from twitter
+        var friendList;
+
+        $.post('/friendList', function(data) {
+            if(data == "error") {
+                $('#friendListMessage').html("<p>Could Not Get Friend List! Try Again</p>");
+                console.log('error');
+                $('#friendListBox').removeClass("hidden");
+            }
+            else {
+                friendList = JSON.parse(data);
+                $('#friendListMessage').html("");
+                $.each(friendList.users, function() {
+                    var a = 1;
+                    $('#friendListMessage').append(
+                        "<li id='" + a + "'>" + this.name + "</li>"
+                    );
+                    a++;
+                });
+                $('#friendListBox').removeClass("hidden");
+            }
+            $('#friendListMessage').show(200);
         });
     });
     

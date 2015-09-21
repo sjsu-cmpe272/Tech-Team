@@ -1473,6 +1473,10 @@ div.ad-information h3 {
 
 /* Custom button
 -------------------------------------------------- */
+/* Center Button */
+.btn-center {
+    margin: 0 auto;
+}
 
 /* Set the hover state */
 /* An easy hover state is just to move the gradient up a small amount. Add other embellishments as you see fit. */

@@ -263,7 +263,7 @@ module.exports = function(app, db, passport){
             });
     });
 
-    // '/gettoken' - Render Details View from results
+    // '/tweetStatus' - Render Details View from results
     app.post('/tweetStatus', function (req, res) {
         var oauth = new OAuth.OAuth(
             'https://api.twitter.com/oauth/request_token',
@@ -279,6 +279,28 @@ module.exports = function(app, db, passport){
             process.env.TWITTER_USER_TOKEN, //test user token
             process.env.TWITTER_USER_SECRET, //test user secret
             {"status":req.body.status},
+            function (e, data) {
+                if (e) console.error(e);
+                console.log(require('util').inspect(data));
+                res.send(data);
+            });
+    });
+
+    // '/friendList' - Render Details View from results
+    app.post('/friendList', function (req, res) {
+        var oauth = new OAuth.OAuth(
+            'https://api.twitter.com/oauth/request_token',
+            'https://api.twitter.com/oauth/access_token',
+            process.env.TWITTER_CONSUMER_KEY,
+            process.env.TWITTER_CONSUMER_SECRET,
+            '1.0A',
+            null,
+            'HMAC-SHA1'
+        );
+        oauth.get(
+            'https://api.twitter.com/1.1/friends/list.json',
+            process.env.TWITTER_USER_TOKEN, //test user token
+            process.env.TWITTER_USER_SECRET, //test user secret
             function (e, data) {
                 if (e) console.error(e);
                 console.log(require('util').inspect(data));
