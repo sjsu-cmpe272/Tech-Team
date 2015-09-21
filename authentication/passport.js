@@ -19,8 +19,9 @@ module.exports = function (passport, db) {
 	passport.use(new LocalStrategy(function(username, password, done){
 		console.log("I'm at Local Strategy Beginning");
 		var Users = db.Users;
-	
-		Users.find({where: {username: username}}).success(function(user){
+        console.log("Assigned variables to User...");
+
+        Users.find({where: {username: username}}).then(function(user){
 			console.log("Found User by username - in local strategy");
 			if(!user){
 				console.log("INCORRECT Username!");

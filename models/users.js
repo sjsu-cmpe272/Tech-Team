@@ -5,6 +5,7 @@
 In other words, this code defines how a row in the postgres Users table
 maps to the JS Order object.
 */
+
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define("Users", {
     username: {type: DataTypes.STRING, allowNull: true},

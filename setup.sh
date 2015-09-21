@@ -193,6 +193,13 @@ echo
 
 sudo npm install underscore
 
+# Install NODEJS oAuth
+echo
+echo Installing oAuth
+echo
+
+sudo npm install oauth
+
 # Install NODEJS foreman
 echo
 echo Installing foreman to start node using: "nf start"
