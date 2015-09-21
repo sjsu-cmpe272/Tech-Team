@@ -276,8 +276,8 @@ module.exports = function(app, db, passport){
         );
         oauth.post(
             'https://api.twitter.com/1.1/statuses/update.json',
-            '3580241858-nZBlvSAOoyXnIyfyqbzySTHG9KANUN92MQD6A4D', //test user token
-            'iTJRNT4Tpjn5AN8rHbNWDJt8U3EyXSaxlsa3YgoHfaP4Y', //test user secret
+            process.env.TWITTER_USER_TOKEN, //test user token
+            process.env.TWITTER_USER_SECRET, //test user secret
             {"status":req.body.status},
             function (e, data) {
                 if (e) console.error(e);
