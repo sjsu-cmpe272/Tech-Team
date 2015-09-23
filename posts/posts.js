@@ -1,76 +1,9 @@
 /*
     Handle Posts made to the server
 */
-var Help = require('../helper/help.js')
-    , async = require('async')
-    , OAuth = require('oauth');
+var OAuth = require('oauth');
 
-module.exports = function(app, db, passport){
-	
-	// '/signnew' - Handle New Account Registration
-	app.post("/signnew", Help.userExist, function (req, res) {
-		var customerId = null;
-		
-		Help.createUser(req, res, customerId, sendErrorEmail, function(savedUser) {
-
-			if(savedUser) {
-				console.log("User Was Saved: "+ JSON.stringify(savedUser)); 
-				req.session.messages = "";
-				return res.redirect('/');
-			}
-			
-		});
-				
-	});
-	
-	// '/checkuser' - Check if users exists
-	app.post('/checkuser', function(req, res) {
-	    db.Users.count({where: {username: req.body.username}}).then(function (count) {
-			if (count === 0) {
-				console.log("Username Available");
-				res.send("Available");
-			} else {
-				console.log("Username NOT Available");
-				res.send("Not Available");
-			}
-		});
-	});
-	
-	// '/signup' - Handle Email Sign-ups
-	app.post('/signup', function(req, res) {
-		var email=[];
-		email.push(req.body.signupEmail);
-	
-		console.log("email received: %s", email[0]);
-	
-		//Function to store email Async to the database.
-		async.forEach(email, Help.storeEmail, function(err) {
-			if (err) {
-				console.log(err);
-				response.send("error storing emails");
-			} else {
-				// email added successfully
-				//response.redirect("/orders");
-				console.log("Email added successfuly to database");
-			}
-		});
-	});
-	
-	// '/login' - Handle Login Reguest
-	app.post('/login', function(req, res, next) {
-	    passport.authenticate('local', function(err, user, info) {
-			if (err) { return next(err) }
-			if (!user) {
-			    req.session.messages =  [info.message];
-			    return res.redirect('/');
-			}
-			req.logIn(user, function(err) {
-			    if (err) { return next(err); }
-			    req.session.messages = "";
-			    return res.redirect('/');
-			});
-	  	})(req, res, next);
-	});
+module.exports = function(app){
 
     // '/tweetStatus' - Post to Twitter - By Carlos
     app.post('/tweetStatus', function (req, res) {
