@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="clasiroutes">
+<html lang="en">
 	<!-- HEAD
 	================================================== -->
     <head>
 		<meta charset="utf-8">
 		<title>Twitter REST API Homework</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="author" content="">
+		<meta name="description" content="Page developed for class CMPE-272">
+		<meta name="author" content="Tech-team SJSU">
 
 		<!-- CSS Links -->
 		<!-- BOOTSTRAP - Latest compiled and minified CSS -->
@@ -37,20 +37,9 @@
 		================================================== -->
 		<div class="navbar-wrapper">
 			<div class="container">
-
 				<div class="navbar navbar-inverse navbar-static-top">
-
 					<div class="container">
-	
 						<div class="navbar-header">
-							<button type="button" class="xsMenuBtn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<div class="center-text center-fields">
-									<span class="icon-bar center-text"></span>
-									<span class="icon-bar center-text"></span>
-									<span class="icon-bar nopaddingbottom center-text"></span>
-									<div class="xsMenu">Menu</div>
-								</div>
-							</button>
 							<div id="toolspinLogo">
 								<a class="navbar-brand nopaddingall smallpaddingright smallpaddingLeftRightLogo" href="/">
 									<div class="">
@@ -59,251 +48,134 @@
 								</a>
 							</div>
 						</div>
-		
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-							<% if(userName == "Guest") { %>
-								<li><a id="loginBtn" href="#">Log-In</a></li>
-							<% } 
-							   else {	%>
-							   		<li class="dropdown visible-xs">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-										  Welcome <%= userName %> <span class="caret"></span>
-										</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="signoutBtn" href="/logout">Log-Out</a></li>
-                                        </ul>
-									</li>
-<%								} %>
-							</ul>
-							<div class="user-welcome hidden-xs right">
-								<% if (userName == "Guest") { %>
-									Welcome <%= userName %>
-								<% } 
-								   else {%>
-										<li class="dropdown">
-											<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											  Welcome <%= userName %> <span class="caret"></span>
-											</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a id="signoutBtn" href="/logout">Log-Out</a></li>
-                                            </ul>
-										</li>
-								<% }%>
-							</div>
-						</div>
-					
-						<!-- Login -->
-						<div id="loginDrawer" class='container <%= hidden %> medpaddingbottom loginDrawer'>
-							<!-- Close Button -->
-							<div class="row">
-								<div class="col-md-12">
-									<a id="closeLogin" href="#loginDrawer" class="right nopaddingbottom"><i class="icon-remove-sign icon-2x"></i></a>
-								</div>
-							</div>
-						
-							<!-- Log-in and Sign-in Forms -->
-							<div id="loginData">
-								<div class="row largepaddingleft largepaddingright center-fields loginPadding">
-									<div id="login" class="col-md-6">
-									
-										<form id="loginForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/login">
-											<h3 class="logocolors-noshadow center-text nomargintop">Log-in</h3>
-											<div class="form-group">
-												<div class="col-lg-12 col-md-12">
-													<input type="text" class="form-control validate[required]" id="username" name="username" placeholder="User Name">
-												</div>
-											</div>
-				
-											<div class="form-group">
-												<div class="col-lg-12 col-md-12">
-													<input type="password" class="form-control validate[required]" id="password" name="password" placeholder="Password">
-												</div>
-											</div>
-											<% if (errorLogin) { %>
-												<p class="alert alert-danger"><%= errorLogin %></p>
-											<% } %>
-											<button type="submit" class="btn btn-clasinuevos">Log-In</button>
-										</form>
-				
-									</div>
-									<div id="newAccount" class="col-md-6">	
-									
-										<form id="signnewForm" class="form-horizontal loginForm" role="form" method="post" action="/signnew">
-											<h3 class="logocolors-noshadow center-text nomargintop">Sign-Up</h3>
-											<div class="form-group">
-												<div class="col-lg-12 col-md-12">
-													<input type="text" class="form-control validate[required]" id="fullName" name="fullNameOwner" placeholder="Full Name">
-												</div>
-											</div>
-					
-											<div class="form-group">
-												<div class="col-lg-12 col-md-12">
-													<input type="text" class="userName form-control validate[required]" id="userName" name="username" placeholder="User Name">
-												</div>
-											</div>
-			
-											<div class="form-group">
-												<div class="col-lg-12 col-md-12">
-													<input type="email" class="form-control validate[required,custom[email]]" id="signnewEmail" name="email" placeholder="Email">
-												</div>
-											</div>
-			
-											<div class="form-group">
-												<div class="col-lg-12 col-md-12">
-													<input type="password" class="form-control validate[required]" id="passwordSignup" name="password" placeholder="Password">
-												</div>
-											</div>
-			
-											<div class="form-group">
-												<div class="col-lg-12 col-md-12">
-													<input type="password" class="form-control validate[required,equals[passwordSignup]]" id="passwordConfSignup" name="passwordConf" placeholder="Confirm Password">
-												</div>
-											</div>
-											
-											<!-- Hidden Fields to match Database Structure and Avoid Try-Catch on server (undefined error) -->
-											<input type="hidden" name="fullNameRealtor" value="">
-											<input type="hidden" name="ownerOrRealtor" value="">
-											<% if (errorSignup) { %>
-												<p class="alert alert-danger"><%= errorSignup %></p>
-											<% } %>
-											<button type="submit" class="userNameOk btn btn-clasinuevos">Sign-Up</button>
-										</form>
-				
-									</div>
-								</div>
-							</div>
-						
-						</div>
-						
 					</div>
-	
 				</div>
-			
 			</div>
 		</div>
  
-		<!-- CAROUSEL
+		<!-- BACKGROUND with Image from BOOTSTRAP CAROUSEL styles
 		================================================== -->
 		<div id="myCarousel" class="carousel slide">
-			<div class="carousel-inner">
-				<div class="item active">
-					<div id="carouselMod" class="carousel-caption">
-
-					</div>
-				</div>
-			</div>
-		</div><!-- /.carousel -->
-
-		<!-- WIDE ROW White bar across page
-		 ================================================== -->
-		<div id="social-buttons-row" class="well well-sm">
-
+			<div class="carousel-inner item active"></div>
 		</div>
 
-		<!-- CONTENT -
+		<!-- WIDE ROW White bar across page after Background
+		 ================================================== -->
+		<div id="social-buttons-row" class="well well-sm"></div>
+
+		<!-- CONTENT - Main Container
 		================================================== -->
 		<div class="container nomargintop">
+
+            <!-- CENTRAL CONTENT: Twitters REST APIs Calls
+            ++++++++++++++++++++++++++++++++++++++++++ -->
+
+            <!-- 1st Row Division for Twitter APIs
+            ============================================== -->
 			<div class="row">
 
-                <!-- CENTRAL CONTENT: Twitters REST APIs Calls
-                ++++++++++++++++++++++++++++++++++++++ -->
-
-                <!-- First Twitter Row
+                <!-- First Twitter Row Division
 				****************************************** -->
 				<div id="twitterContent_First_Row" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                    <!-- Twitter POST statuses/update API  -  By Carlos
+                    <!-- Twitter API: "POST statuses/update"  -  By Carlos Martinez
                     ++++++++++++++++++++++++++++++++++++++ -->
                     <div id="tweet" class="col-md-4 center-text largepaddingbottom">
 
+                        <!-- Form to Collect Messege to Tweet -->
                         <form id="tweetForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/tweetStatus">
+                            <!-- Title -->
                             <h4 class="logocolors-noshadow center-text nomargintop">POST statuses/update API</h4>
                             <div class="form-group">
                                 <div class="col-lg-12 col-md-12">
                                     <input type="text" class="form-control validate[required]" id="status" name="status" placeholder="Enter Message to Tweet">
                                 </div>
                             </div>
-
+                            <!-- Button to Submit Information -->
                             <button id="tweetBtn" type="submit" class="btn btn-clasinuevos">Tweet</button>
                         </form>
 
+                        <!-- Division to Show Results  -->
                         <div id="twitterBox" class="hidden drawerAdjustments">
-                            <div id="tweetMessage">
-                                <div class='text-center largemargintop'><h1>Loading... <i
-                                        class='icon-refresh icon-spin'></i></h1></div>
-                            </div>
+                            <div id="tweetMessage"></div>
                         </div>
 
                     </div>
 
-                    <!-- Twitter GET Friend/list API  -  By Carlos
+                    <!-- Twitter API: "GET Friend/list"  -  By Carlos Martinez
                     ++++++++++++++++++++++++++++++++++++++ -->
                     <div id="friendList" class="col-md-4 center-text largepaddingbottom">
-
+                        <!-- Title -->
                         <h4 class="logocolors-noshadow center-text nomargintop">GET Friend/list API</h4>
 
+                        <!-- Division to Show Results  -->
                         <div id="friendListBox" class="hidden drawerAdjustments">
                             <div id="friendListMessage"></div>
                         </div>
                         <br>
+
+                        <!-- Button to Request Information -->
                         <button id="getFriendListBtn" type="submit" class="btn btn-clasinuevos">Get Friend List</button>
 
                     </div>
 
-                    <!-- Twitter GET Followers/List Api  -  By Snehal
+                    <!-- Twitter API: "GET Followers/List"  -  By Snehal Golhar
                     ++++++++++++++++++++++++++++++++++++++ -->
                     <div id="getfollowerslist" class="col-md-4 center-text largepaddingbottom">
-
+                        <!-- Title -->
                         <h4 class="logocolors-noshadow center-text nomargintop">GET Followers/List</h4>
 
+                        <!-- Division to Show Results  -->
                         <div id="divfollowerslist" class="hidden drawerAdjustments">
                             <div id="followerslist"></div>
                         </div>
                         <br>
+
+                        <!-- Button to Request Information -->
                         <button id="getfollowersBtn" type="submit" class="btn btn-clasinuevos">See Your Followers</button>
 
                     </div>
-
 				</div>
-
             </div>
 
+            <!-- 2nd Row Division for Twitter APIs
+            ============================================== -->
             <div class="row largepaddingtop largepaddingbottom">
+
                 <!-- Second Twitter Row
                 ****************************************** -->
                 <div id="twitterContent_Second_Row" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                    <!-- Twitter GET Search/Tweets Api  -  By Snehal
+                    <!-- Twitter API: "GET Search/Tweets"  -  By Snehal Golhar
                     ++++++++++++++++++++++++++++++++++++++ -->
                     <div id="searchtweet" class="col-md-4 center-text largepaddingbottom">
 
+                        <!-- Form to Collect Text to Search on Twitter -->
                         <form id="searchtweetForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/searchTweet">
+                            <!-- Title -->
                             <h4 class="logocolors-noshadow center-text nomargintop">GET Search/Tweets Api</h4>
-
                             <div class="form-group">
                                 <div class="col-lg-12 col-md-12">
                                     <input type="text" class="form-control validate[required]" id="searchkey" name="searchkey" placeholder="Enter Text to search">
                                 </div>
                             </div>
 
+                            <!-- Button to Submit Information -->
                             <button id="searchBtn" type="submit" class="btn btn-clasinuevos">Search Tweet</button>
                         </form>
 
+                        <!-- Division to Show Results  -->
                         <div id="searchBox" class="hidden drawerAdjustments">
-                            <div id="searchResultsMessage">
-                            </div>
+                            <div id="searchResultsMessage"></div>
                         </div>
-
                     </div>
-
                 </div>
-
 			</div>
 			
 			<!-- FOOTER -->
 			<footer>
 				<div class="largepaddingtop">
+                    <!-- Scroll to the top of the page -->
 					<p class="pull-right"><a href="#">SJSU Tech-team</a></p>
 				</div>
 			</footer>

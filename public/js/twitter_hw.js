@@ -1,207 +1,206 @@
 /* GLOBAL VARIABLES 
 ------------------------------------------------ */
-// Variables for Typing Timer in userName fields
-var typingTimer;     //Timer to detect if user finish typing
-var doneTypingInterval = 500;  //time in ms, 0.5 second for example
-var currentUsernameField;		//current userName field
-var usernameFieldState = true;	//true = OK, false = error on user name
+// NONE
 
 /* Execute When Document is Ready 
 ------------------------------------------------ */
 $(document).ready(function(){
 
-    // Change Logo Hight
-    changeLogo();
+    // Function to Change Bkg Height and Bottom to Fit the Project Without changing CSS File
+    changeBackgroundHeight();
 
-	/* Show Background image
+	/* Show Background image - Not Visible by Default
 	-------------------------------------------- */
 	$("#myCarousel").css("visibility", "visible");
-	
-	/* Tweet a Message using the server
-	--------------------------------------------*/
+
+    /* Code to interact between UI and Server for Implementation of Twitter APIs
+     ===========================================================================*/
+
+    /* -- Twitter API: "POST statuses/update"  -  By Carlos Martinez
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     $("#tweetBtn").click(function (e) {
+        // Prevent the default action of submitting the form to the server
         e.preventDefault();
+
+        // Capture the value of the text field - "message"
         var message = $("#status").val();
-        $.post('/tweetStatus', { status: message}, function(data) {
-            if(data == "error") {
-                $('#tweetMessage').html("<p>Tweet was NOT possible! Try Again</p>");
-                console.log('error');
+
+        // Execute Posting only if the validation of the Form was successful
+        if($("#tweetForm").validationEngine('validate')) {
+            // http POST communication with the NODEJS Server - Sending Captured Text
+            $.post('/tweetStatus', {status: message}, function (data) {
+
+                // Make the result area visible
                 $('#twitterBox').removeClass("hidden");
-            }
-            else {
-                $('#tweetMessage').html("<p>The following message was Tweeted: <br><strong>"+message+"</strong></p>");
-                $('#twitterBox').removeClass("hidden");
-                $("#status").val("");
-            }
-            $('#tokenMessage').show(200);
-        });
+
+                // Verify if the returned data contains the message "error"
+                if (data == "error") {
+                    // Insert Error Message in Division
+                    $('#tweetMessage').html("<p>Tweet was NOT possible! Try Again</p>");
+                }
+                else {
+                    // Insert Result Message in Division
+                    $('#tweetMessage').html("<p>The following message was Tweeted: <br><strong>" + message + "</strong></p>");
+                    // Erase Text Field to get it ready for next tweet.
+                    $("#status").val("");
+                }
+            });
+        }
     });
 
-    /* Get Friend list from Twitter
-     --------------------------------------------*/
-    $("#getFriendListBtn").click(function (e) {
-        e.preventDefault();
+    /* -- Twitter API: "GET Friend/list"  -  By Carlos Martinez
+     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    $("#getFriendListBtn").click(function() {
 
         // Variable to get friend list from twitter
         var friendList;
 
+        // http POST communication with the NODEJS Server
         $.post('/friendList', function(data) {
+
+            // Make the result area visible
+            $('#friendListBox').removeClass("hidden");
+
+            // Verify if the returned data contains the message "error"
             if(data == "error") {
+                // Insert Error Message in Division
                 $('#friendListMessage').html("<p>Could Not Get Friend List! Try Again</p>");
-                console.log('error');
-                $('#friendListBox').removeClass("hidden");
             }
             else {
+                // parse JSON data to variable
                 friendList = JSON.parse(data);
+
+                // Clear message area (Division) from previous messages
                 $('#friendListMessage').html("");
+
+                // Variable to count users and add it as the List id
+                var a = 1;
+
+                // Go through each object (user) in the array to get the "name"
                 $.each(friendList.users, function() {
-                    var a = 1;
+                    // Get each friend name and add it to the message area as item on list
                     $('#friendListMessage').append(
                         "<li id='" + a + "'>" + this.name + "</li>"
                     );
+                    // Increment variable by 1
                     a++;
                 });
-                $('#friendListBox').removeClass("hidden");
             }
-            $('#friendListMessage').show(200);
         });
     });
 
-    /* GET Search/Tweets Api - by Snehal
-     ---------------------------------------------------------------*/
+    /* -- Twitter API: "GET Search/Tweets"  -  By Snehal Golhar
+     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     $("#searchBtn").click(function (e) {
+        // Prevent the default action of submitting the form to the server
         e.preventDefault();
 
         // Variable to get search results from twitter
         var searchResults;
+
+        // Capture the value of the text field - "search text"
         var searchword = $("#searchkey").val();
-        $.post('/searchTweet', { searchWord: searchword}, function(data) {
-            if(data == "error") {
-                $('#searchTweets').html("<p>No Result for your search </p>");
-                console.log('error');
-                $('#searchbox').removeClass("hidden");
-            }
-            else {
-                searchResults = JSON.parse(data);
-                console.log(searchResults);
-                $('#searchResultsMessage').html("");
-                $.each(searchResults.statuses, function() {
-                    var a = 1;
-                    $('#searchResultsMessage').append(
-                        "<li id='" + a + "'><strong>" + this.user.name+' said:</strong><br>'+this.text+ "</li><br>"
-                    );
-                    a++;
-                });
+
+        // Execute Posting only if the validation of the Form was successful
+        if($("#searchtweetForm").validationEngine('validate')) {
+            // http POST communication with the NODEJS Server - Sending Captured Text
+            $.post('/searchTweet', {searchWord: searchword}, function (data) {
+
+                // Make the result area visible
                 $('#searchBox').removeClass("hidden");
-            }
-            $('#searchResultsMessage').show(200);
-        });
+
+                // Verify if the returned data contains the message "error"
+                if (data == "error") {
+                    // Insert Error Message in Division
+                    $('#searchResultsMessage').html("<p>No Result for your search </p>");
+                    console.log("Error");
+                }
+                else {
+                    // parse JSON data to variable
+                    searchResults = JSON.parse(data);
+                    console.log(searchResults);
+                    // Clear message area (Division) from previous messages
+                    $('#searchResultsMessage').html("");
+
+                    // Variable to count users and add it as the List id
+                    var a = 1;
+
+                    // Go through each object (statuses) in the array to get the "user name" and "text"
+                    $.each(searchResults.statuses, function () {
+                        // Get Who Tweeted name and the message tweeted; then add (append) to list as HTML
+                        $('#searchResultsMessage').append(
+                            "<li id='" + a + "'><strong>" + this.user.name + ' said:</strong><br>' + this.text + "</li><br>"
+                        );
+                        // Increment variable by 1
+                        a++;
+                    });
+                }
+            });
+        }
     });
 
-    /* GET Followers/List Api - by Snehal
-     ---------------------------------------------------------------*/
-    $("#getfollowersBtn").click(function (e) {
-        e.preventDefault();
-
-        // Variable to get search results from twitter
+    /* -- Twitter API: "GET Followers/List"  -  By Snehal Golhar
+     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    $("#getfollowersBtn").click(function() {
+        // Variable to get followers results from twitter
         var followerslist;
+
         $.post('/getfollowers',function(resultfollowersResponse) {
+
+            // Make the result area visible
+            $('#divfollowerslist').removeClass("hidden");
+
+            // Verify if the returned data contains the message "error"
             if(resultfollowersResponse == "error") {
+                // Insert Error Message in Division
                 $('#followerslist').html("<p>No followers to display </p>");
-                console.log('error');
-                $('#divfollowerslist').removeClass("hidden");
             }
             else {
+                // parse JSON data to variable
                 followerslist=JSON.parse(resultfollowersResponse);
-                console.log(followerslist);
+
+                // Clear message area (Division) from previous messages
                 $('#followerslist').html("");
+
+                // Variable to count users and add it as the List id
+                var a = 1;
+
+                // Go through each object (user) in the array to get the "name"
                 $.each(followerslist.users, function() {
-                    var a = 1;
+                    // Get each friend name and add it to the message area as item on list
                     $('#followerslist').append(
                         "<li id='" + a + "'>" + this.name + "</li>"
                     );
+                    // Increment variable by 1
                     a++;
                 });
-                $('#divfollowerslist').removeClass("hidden");
             }
-            $('#followerslist').show(200);
         });
     });
 
 
-    /* Initial State for DOM Items
+    /* Validation Attachment Area
     -------------------------------------------- */
-	//Form Validation Sign-Up
-    $("#signnewForm").validationEngine('attach', {promptPosition : "topLeft"});
+	//Form Validation For Search API
+    $("#searchtweetForm").validationEngine('attach', {promptPosition : "topLeft"});
 
-    //Form Validation tweet form
+    //Form Validation Tweet form
     $("#tweetForm").validationEngine('attach', {promptPosition : "topLeft"});
 
-	/* Response to actions in DOM */
-	$("#closeLogin").click(function(e) {
-		e.preventDefault();
-		$("#loginDrawer").hide(400);
-	});
-	
-	$("#loginBtn").click(function() {
-		if($("#loginDrawer").hasClass('hidden')){
-			$("#loginDrawer").hide();
-			$("#loginDrawer").removeClass("hidden");
-			$("#loginDrawer").show(800);
-		}
-		else
-			$("#loginDrawer").toggle(800);
-	});
-
-	// On 'username' keyup, start timer countdown
-	$('.userName').keyup(function(){
-		currentUsernameField = $(this);
-		clearTimeout(typingTimer);
-		if ($(this).val()) {
-			typingTimer = setTimeout(doneTyping, doneTypingInterval);
-		}
-	});
 });
  
 /* Individual Functions
 ------------------------------------------------ */
-// User "finished typing username," Verify if available in DB
-function doneTyping () {
-	var inputVal = $(currentUsernameField).val();
-	var errorMsg = "<div id='usernameMsg' class='alert alert-danger nomarginbottom minipaddingall'>Nombre No Disponible!</div>";
-	var successMsg = "<div id='usernameMsg' class='alert alert-success nomarginbottom minipaddingall'>Nombre Disponible!</div>";
-    $.post("/checkuser", { username: inputVal }, function(data) { 
-		console.log("User Name Available: "+data);
-		if(data == "Available"){
-			$("#usernameMsg").remove();
-			$(currentUsernameField).parent('div').removeClass("has-error");
-			$(currentUsernameField).parent('div').append(successMsg);
-			$(currentUsernameField).parent('div').addClass("has-success");
-			usernameFieldState = true;
-			$(".userNameOk").attr('disabled' , false);
-		}
-		else {
-			$("#usernameMsg").remove();
-			$(currentUsernameField).parent('div').removeClass("has-success");
-			$(currentUsernameField).parent('div').append(errorMsg);
-			$(currentUsernameField).parent('div').addClass("has-error");
-			usernameFieldState = false;
-			$(".userNameOk").attr('disabled' , true);
-		}
-	}); 
-}
-
-function changeLogo() {
-	  console.log("Detecting Browser...");
+function changeBackgroundHeight() {
+      // Verify window width to adjust
 	  var width = $(window).width();
-	  
+
+      //Adjust Height and bottom accordingly
 	  if (width < 750) {
-		$(".carousel .item").animate({ height: 90 }, 50);
-		$(".carousel-caption").animate({ bottom: 0 }, 50);
+		$(".carousel .item").height(90);
+		$(".carousel-caption").css("bottom","0");
 	  } else {
-		$(".carousel .item").animate({ height: 90 }, 50);
-		$(".carousel-caption").animate({ bottom: -20 }, 50);
+		$(".carousel .item").height(90);
+		$(".carousel-caption").css("bottom","-20");
 	  }
-	$("#mainLogo").remove();
-	$("#horizontalAd").removeClass("hidden");
 }

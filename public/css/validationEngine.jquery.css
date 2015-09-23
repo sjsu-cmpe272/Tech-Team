@@ -10,9 +10,6 @@
     .ui-dialog .formError .formErrorContent { z-index: 5001; }
     .ui-dialog .formError .formErrorArrow { z-index: 5006; }
 
-
-
-
 .inputContainer {
 	position: relative;
 	float: left;
