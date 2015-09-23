@@ -5,9 +5,6 @@ var typingTimer;     //Timer to detect if user finish typing
 var doneTypingInterval = 500;  //time in ms, 0.5 second for example
 var currentUsernameField;		//current userName field
 var usernameFieldState = true;	//true = OK, false = error on user name
-var googleMapsLoaded = false;  //Flag if google map scrip was loaded.
-var calcLoaded = false;  //Flag if Mortgage Calculator is Loaded.
-var myaccountLoaded = false; //Flag if myAccount is loaded.
 
 /* Execute When Document is Ready 
 ------------------------------------------------ */
@@ -45,7 +42,7 @@ $(document).ready(function(){
     $("#getFriendListBtn").click(function (e) {
         e.preventDefault();
 
-        // Variabble to get friend list from twitter
+        // Variable to get friend list from twitter
         var friendList;
 
         $.post('/friendList', function(data) {
@@ -69,9 +66,71 @@ $(document).ready(function(){
             $('#friendListMessage').show(200);
         });
     });
-    
-	/* Initial State for DOM Items
-	-------------------------------------------- */
+
+    /* GET Search/Tweets Api - by Snehal
+     ---------------------------------------------------------------*/
+    $("#searchBtn").click(function (e) {
+        e.preventDefault();
+
+        // Variable to get search results from twitter
+        var searchResults;
+        var searchword = $("#searchkey").val();
+        $.post('/searchTweet', { searchWord: searchword}, function(data) {
+            if(data == "error") {
+                $('#searchTweets').html("<p>No Result for your search </p>");
+                console.log('error');
+                $('#searchbox').removeClass("hidden");
+            }
+            else {
+                searchResults = JSON.parse(data);
+                console.log(searchResults);
+                $('#searchResultsMessage').html("");
+                $.each(searchResults.statuses, function() {
+                    var a = 1;
+                    $('#searchResultsMessage').append(
+                        "<li id='" + a + "'><strong>" + this.user.name+' said:</strong><br>'+this.text+ "</li><br>"
+                    );
+                    a++;
+                });
+                $('#searchBox').removeClass("hidden");
+            }
+            $('#searchResultsMessage').show(200);
+        });
+    });
+
+    /* GET Followers/List Api - by Snehal
+     ---------------------------------------------------------------*/
+    $("#getfollowersBtn").click(function (e) {
+        e.preventDefault();
+
+        // Variable to get search results from twitter
+        var followerslist;
+        $.post('/getfollowers',function(resultfollowersResponse) {
+            if(resultfollowersResponse == "error") {
+                $('#followerslist').html("<p>No followers to display </p>");
+                console.log('error');
+                $('#divfollowerslist').removeClass("hidden");
+            }
+            else {
+                followerslist=JSON.parse(resultfollowersResponse);
+                console.log(followerslist);
+                $('#followerslist').html("");
+                $.each(followerslist.users, function() {
+                    var a = 1;
+                    $('#followerslist').append(
+                        "<li id='" + a + "'>" + this.name + "</li>"
+                    );
+                    a++;
+                });
+                $('#divfollowerslist').removeClass("hidden");
+            }
+            $('#followerslist').show(200);
+        });
+    });
+
+
+    /* Initial State for DOM Items
+    -------------------------------------------- */
 	//Form Validation Sign-Up
     $("#signnewForm").validationEngine('attach', {promptPosition : "topLeft"});
 
@@ -146,53 +205,3 @@ function changeLogo() {
 	$("#mainLogo").remove();
 	$("#horizontalAd").removeClass("hidden");
 }
-
-/*
-var API_ORDER_ROUTE = '/api/orders';
-function OrdersCtrl($http, $scope) {
-    $http.get(API_ORDER_ROUTE).success(function(data, status, headers, config) {
-        if (data.error) {
-            $scope.error = data.error;
-        } else {
-            $scope.num_orders = data.num_orders;
-            $scope.total_funded = data.total_funded.toFixed(2);
-            $scope.unit_symbol = data.unit_symbol;
-            $scope.target = data.target;
-            $scope.days_left = data.days_left ? data.days_left : 0;
-            $scope.percentage_funded = Math.min($scope.total_funded / $scope.target * 100.0, 100);
-        }
-    }).error(function(data, status, headers, config) {
-        $scope.error = "Error fetching order statistics.";
-    });
-}
-
-$.post('/busqueda',$("#search").serialize(), function(data) {
-    if(data != "error") {
-        $('#resultsData').empty();
-        $('#resultsData').html(data.html);
-        resultsCoords = data.raw;
-        $('#searchBtn').html("<i class='icon-search'></i>  Buscar");
-
-        //Adjust Side Columns Height
-        methodToFixSideColumnsHeight();
-    }
-    else {
-        $('#searchBtn').html("<i class='icon-search'></i>  Buscar");
-        $('#formProcessingModal').modal('hide');
-        $('#formErrorModal').modal('hide');
-    }
-    $("#offset").remove();
-    $("#screenSize").remove();
-});
-
-var id = $(caller).attr('name');
-$.post('/details', { id: id }, function(data) {
-    if(data != "error") {
-        $('#detailsData').html(data);
-    }
-    else {
-        $('#formProcessingModal').modal('hide');
-        $('#formErrorModal').modal('show');
-    }
-});
-*/

@@ -22,7 +22,7 @@
 		<link href="/css/carousel.css" rel="stylesheet">
 		<!-- VALIDATION ENGINE CSS -->
 		<link href="/css/validationEngine.jquery.css" rel="stylesheet">
-        <!-- Custom CALSINUEVOS style -->
+        <!-- Custom Twitter HW style -->
         <link href="/css/twitter_hw.css" rel="stylesheet">
 
     </head>
@@ -205,14 +205,17 @@
 		================================================== -->
 		<div class="container nomargintop">
 			<div class="row">
-			
-				<!-- CENTRAL CONTENT
-				****************************************** -->
-				<div id="mainContent" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 
-                    <!-- Twitters REST APIs Calls
+                <!-- CENTRAL CONTENT: Twitters REST APIs Calls
+                ++++++++++++++++++++++++++++++++++++++ -->
+
+                <!-- First Twitter Row
+				****************************************** -->
+				<div id="twitterContent_First_Row" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <!-- Twitter POST statuses/update API  -  By Carlos
                     ++++++++++++++++++++++++++++++++++++++ -->
-                    <div id="tweet" class="col-md-6 center-text">
+                    <div id="tweet" class="col-md-4 center-text largepaddingbottom">
 
                         <form id="tweetForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/tweetStatus">
                             <h4 class="logocolors-noshadow center-text nomargintop">POST statuses/update API</h4>
@@ -226,25 +229,75 @@
                         </form>
 
                         <div id="twitterBox" class="hidden drawerAdjustments">
-                            <div id="tweetMessage"><div class='text-center largemargintop'><h1>Loading... <i class='icon-refresh icon-spin'></i></h1></div></div>
+                            <div id="tweetMessage">
+                                <div class='text-center largemargintop'><h1>Loading... <i
+                                        class='icon-refresh icon-spin'></i></h1></div>
+                            </div>
                         </div>
 
                     </div>
 
-                    <div id="friendList" class="col-md-6 center-text">
+                    <!-- Twitter GET Friend/list API  -  By Carlos
+                    ++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="friendList" class="col-md-4 center-text largepaddingbottom">
 
                         <h4 class="logocolors-noshadow center-text nomargintop">GET Friend/list API</h4>
 
                         <div id="friendListBox" class="hidden drawerAdjustments">
-                            <div id="friendListMessage">
-                            </div>
+                            <div id="friendListMessage"></div>
                         </div>
                         <br>
                         <button id="getFriendListBtn" type="submit" class="btn btn-clasinuevos">Get Friend List</button>
 
                     </div>
 
+                    <!-- Twitter GET Followers/List Api  -  By Snehal
+                    ++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="getfollowerslist" class="col-md-4 center-text largepaddingbottom">
+
+                        <h4 class="logocolors-noshadow center-text nomargintop">GET Followers/List</h4>
+
+                        <div id="divfollowerslist" class="hidden drawerAdjustments">
+                            <div id="followerslist"></div>
+                        </div>
+                        <br>
+                        <button id="getfollowersBtn" type="submit" class="btn btn-clasinuevos">See Your Followers</button>
+
+                    </div>
+
 				</div>
+
+            </div>
+
+            <div class="row largepaddingtop largepaddingbottom">
+                <!-- Second Twitter Row
+                ****************************************** -->
+                <div id="twitterContent_Second_Row" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <!-- Twitter GET Search/Tweets Api  -  By Snehal
+                    ++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="searchtweet" class="col-md-4 center-text largepaddingbottom">
+
+                        <form id="searchtweetForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/searchTweet">
+                            <h4 class="logocolors-noshadow center-text nomargintop">GET Search/Tweets Api</h4>
+
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12">
+                                    <input type="text" class="form-control validate[required]" id="searchkey" name="searchkey" placeholder="Enter Text to search">
+                                </div>
+                            </div>
+
+                            <button id="searchBtn" type="submit" class="btn btn-clasinuevos">Search Tweet</button>
+                        </form>
+
+                        <div id="searchBox" class="hidden drawerAdjustments">
+                            <div id="searchResultsMessage">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
 
 			</div>
 			
