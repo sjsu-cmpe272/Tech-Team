@@ -1220,7 +1220,7 @@ div.ad-information h3 {
 ---------------------------------
 ---------------------------------*/
 #myCarousel {
-	background-image:url("/img/bkgimg2_1920x733_90ppi_80.jpg");
+	background-image:url("/img/green-simple.jpg");
 	background-size:100% 100%;
 	visibility:hidden;
 }
@@ -1480,13 +1480,13 @@ div.ad-information h3 {
 
 /* Set the hover state */
 /* An easy hover state is just to move the gradient up a small amount. Add other embellishments as you see fit. */
-.btn-clasinuevos:hover {
+.btn-twitter:hover {
   background-position: 0 -15px;
 }
 
 /* Apply the custom-colored gradients */
 /* Note: you'll need to include all the appropriate gradients for various browsers and standards. */
-.btn-clasinuevos {
+.btn-twitter {
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(#78ca13), to(#5CB22E)); /* 449d44 */
   background-image: -webkit-linear-gradient(top, #78ca13, 0%, #5CB22E, 100%);
   background-image: -moz-linear-gradient(top, #78ca13 0%, #5CB22E 100%);
@@ -1498,10 +1498,10 @@ div.ad-information h3 {
 
 /* Override base .btn styles */
 /* Apply text and background changes to three key states: default, hover, and active (click). */
-.btn-clasinuevos,
-.btn-clasinuevos:hover,
-.btn-clasinuevos:active,
-.btn-clasinuevos.active {
+.btn-twitter,
+.btn-twitter:hover,
+.btn-twitter:active,
+.btn-twitter.active {
   background-color: #5CB22E;
   border-color: #419641;
   color: white;

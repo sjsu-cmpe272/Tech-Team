@@ -4,7 +4,7 @@
 	================================================== -->
     <head>
 		<meta charset="utf-8">
-		<title>Twitter REST API Homework</title>
+		<title>Being Connected</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Page developed for class CMPE-272">
 		<meta name="author" content="Tech-team SJSU">
@@ -41,14 +41,16 @@
 					<div class="container">
 						<div class="navbar-header">
 							<div id="toolspinLogo">
-								<a class="navbar-brand nopaddingall smallpaddingright smallpaddingLeftRightLogo" href="/">
+								<a class="navbar-brand nopaddingall smallpaddingright medpaddingleft" href="/">
 									<div class="">
-                                        <font color="#00bfff"><h4 class="minipaddingtop">Twitter REST API Homework</h4></font>
+                                        <font color="white"><h4 class="minipaddingtop">Being Connected</h4></font>
 									</div>
 								</a>
 							</div>
 						</div>
-					</div>
+                    <div class="hidden-xs">
+                        <h4 class="minipaddingtop"><small> - A Twitter REST API Tester</small></h4>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -85,14 +87,14 @@
                         <!-- Form to Collect Messege to Tweet -->
                         <form id="tweetForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/tweetStatus">
                             <!-- Title -->
-                            <h4 class="logocolors-noshadow center-text nomargintop">POST statuses/update API</h4>
+                            <h4 class="logocolors-noshadow center-text nomargintop">Send a Tweet</h4>
                             <div class="form-group">
                                 <div class="col-lg-12 col-md-12">
                                     <input type="text" class="form-control validate[required]" id="status" name="status" placeholder="Enter Message to Tweet">
                                 </div>
                             </div>
                             <!-- Button to Submit Information -->
-                            <button id="tweetBtn" type="submit" class="btn btn-clasinuevos">Tweet</button>
+                            <button id="tweetBtn" type="submit" class="btn btn-twitter">Tweet</button>
                         </form>
 
                         <!-- Division to Show Results  -->
@@ -106,7 +108,7 @@
                     ++++++++++++++++++++++++++++++++++++++ -->
                     <div id="friendList" class="col-md-4 center-text largepaddingbottom">
                         <!-- Title -->
-                        <h4 class="logocolors-noshadow center-text nomargintop">GET Friend/list API</h4>
+                        <h4 class="logocolors-noshadow center-text nomargintop">My Friends</h4>
 
                         <!-- Division to Show Results  -->
                         <div id="friendListBox" class="hidden drawerAdjustments">
@@ -115,7 +117,7 @@
                         <br>
 
                         <!-- Button to Request Information -->
-                        <button id="getFriendListBtn" type="submit" class="btn btn-clasinuevos">Get Friend List</button>
+                        <button id="getFriendListBtn" type="submit" class="btn btn-twitter">See My Friends</button>
 
                     </div>
 
@@ -123,7 +125,7 @@
                     ++++++++++++++++++++++++++++++++++++++ -->
                     <div id="getfollowerslist" class="col-md-4 center-text largepaddingbottom">
                         <!-- Title -->
-                        <h4 class="logocolors-noshadow center-text nomargintop">GET Followers/List</h4>
+                        <h4 class="logocolors-noshadow center-text nomargintop">My Followers</h4>
 
                         <!-- Division to Show Results  -->
                         <div id="divfollowerslist" class="hidden drawerAdjustments">
@@ -132,7 +134,7 @@
                         <br>
 
                         <!-- Button to Request Information -->
-                        <button id="getfollowersBtn" type="submit" class="btn btn-clasinuevos">See Your Followers</button>
+                        <button id="getfollowersBtn" type="submit" class="btn btn-twitter">See My Followers</button>
 
                     </div>
 				</div>
@@ -147,13 +149,13 @@
                 <div id="twitterContent_Second_Row" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                     <!-- Twitter API: "GET Search/Tweets"  -  By Snehal Golhar
-                    ++++++++++++++++++++++++++++++++++++++ -->
+                    +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                     <div id="searchtweet" class="col-md-4 center-text largepaddingbottom">
 
                         <!-- Form to Collect Text to Search on Twitter -->
                         <form id="searchtweetForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/searchTweet">
                             <!-- Title -->
-                            <h4 class="logocolors-noshadow center-text nomargintop">GET Search/Tweets Api</h4>
+                            <h4 class="logocolors-noshadow center-text nomargintop">Search Twitter</h4>
                             <div class="form-group">
                                 <div class="col-lg-12 col-md-12">
                                     <input type="text" class="form-control validate[required]" id="searchkey" name="searchkey" placeholder="Enter Text to search">
@@ -161,7 +163,7 @@
                             </div>
 
                             <!-- Button to Submit Information -->
-                            <button id="searchBtn" type="submit" class="btn btn-clasinuevos">Search Tweet</button>
+                            <button id="searchBtn" type="submit" class="btn btn-twitter">Search Tweet</button>
                         </form>
 
                         <!-- Division to Show Results  -->
@@ -169,9 +171,160 @@
                             <div id="searchResultsMessage"></div>
                         </div>
                     </div>
+
+                    <!-- Twitter API: "GET Friends IDs"  -  By Shalini Negi
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="getFriendId" class="col-md-4 center-text largepaddingbottom">
+                        <!-- Title -->
+                        <h4 class="logocolors-noshadow center-text nomargintop">My Friends Ids</h4>
+
+                        <!-- Division to Show Results  -->
+                        <div id="getFriendIdDiv" class="hidden drawerAdjustments">
+                            <div id="getFriendIdMessage"></div>
+                        </div>
+                        <br>
+
+                        <!-- Button to Request Information -->
+                        <button id="getFriendIdBtn" type="submit" class="btn btn-twitter">See My Friends Ids</button>
+                    </div>
+
+                    <!-- Twitter API: "GET Followers/Ids"  -  By Shalini Negi
+                    +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="getFollowerId" class="col-md-4 center-text largepaddingbottom">
+                        <!-- Title -->
+                        <h4 class="logocolors-noshadow center-text nomargintop">My Followers Ids</h4>
+
+                        <!-- Division to Show Results  -->
+                        <div id="getFollowerIdDiv" class="hidden drawerAdjustments">
+                            <div id="getFollowerIdMessage"></div>
+                        </div>
+                        <br>
+
+                        <!-- Button to Request Information -->
+                        <button id="getFollowerIdBtn" type="submit" class="btn btn-twitter">See Followers Ids</button>
+
+                    </div>
+
                 </div>
 			</div>
-			
+
+            <!-- 3rd Row Division for Twitter APIs
+            ============================================== -->
+            <div class="row largepaddingtop largepaddingbottom">
+
+                <!-- Third Twitter Row
+                ****************************************** -->
+                <div id="twitterContent_Third_Row" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <!-- Twitter API: "GET Statuses/User_timeline"  -  By Monisha Dash
+                    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="getRecentStatus" class="col-md-4 center-text largepaddingbottom">
+
+                        <!-- Form to Collect Text for User to search timeline on Twitter -->
+                        <form id="getTimelineForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/recentStatus">
+                            <!-- Title -->
+                            <h4 class="logocolors-noshadow center-text nomargintop">Users Timeline</h4>
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12">
+                                    <input type="text" class="form-control validate[required]" id="screenName" name="screenName" placeholder="Enter Screen Name">
+                                </div>
+                            </div>
+
+                            <!-- Button to Submit Information -->
+                            <button id="getRecentStatusBtn" type="submit" class="btn btn-twitter">Timeline Status</button>
+                        </form>
+
+                        <!-- Division to Show Results  -->
+                        <div id="statusBox" class="hidden drawerAdjustments">
+                            <div id="recentStatusList"></div>
+                        </div>
+                    </div>
+
+                    <!-- Twitter API: "POST Friendships/Create"  -  By Monisha Dash
+                    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="createFollower" class="col-md-4 center-text largepaddingbottom">
+
+                        <!-- Form to Collect Text to Search on Twitter -->
+                        <form id="createFollowerForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/createNewFollower">
+                            <!-- Title -->
+                            <h4 class="logocolors-noshadow center-text nomargintop">Follow Users</h4>
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12">
+                                    <input type="text" class="form-control validate[required]" id="screen_name" name="screen_name" placeholder="Enter Screen Name">
+                                </div>
+                            </div>
+
+                            <!-- Button to Submit Information -->
+                            <button id="getNewFollowersBtn" type="submit" class="btn btn-twitter">Follow User</button>
+                        </form>
+
+                        <!-- Division to Show Results  -->
+                        <div id="createFriendshipBox" class="hidden drawerAdjustments">
+                            <div id="newFriendshipList"></div>
+                        </div>
+
+                    </div>
+
+                    <!--Twitter POST friendships/Destory API - By Khine Oo (Clara)
+					+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="postremovefriend" class="col-md-4 center-text largepaddingbottom">
+
+                        <!-- Form to Collect Text for User to remove Friendship on Twitter -->
+                        <form id="removefriendForm" class="form-horizontal loginForm largepaddingbottom" role="form" method="post" action="/removeFriend">
+
+                            <!-- Title -->
+                            <h4 class="logocolors-noshadow center-text nomargintop">Remove Friend</h4>
+
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12">
+                                    <input type="text" class="form-control validate[required]" id="removingFriend" name="removingFriend" placeholder="Enter a Screen Name to remove">
+                                </div>
+                            </div>
+
+                            <!-- Button to Submit Information -->
+                            <button id="removeFriendBtn" type="submit" class="btn btn-twitter">Remove Friendship</button>
+                        </form>
+
+                        <!-- Division to Show Results  -->
+                        <div id="removeFriendBox" class="hidden drawerAdjustments">
+                            <div id="removeFriendMessage"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 4th Row Division for Twitter APIs
+            ============================================== -->
+            <div class="row largepaddingtop largepaddingbottom">
+
+                <!-- Fourth Twitter Row
+                ****************************************** -->
+                <div id="twitterContent_Fourth_Row" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <!-- Twitter GET Users/Suggestions API - By Khine Oo(Clara)
+                    +++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="getsuggestionList" class="col-md-4 center-text largepaddingbottom">
+
+                        <!-- Title -->
+                        <h4 class="logocolors-noshadow center-text nomargintop">User Suggestions?</h4>
+
+                        <!-- Division to Show Results  -->
+                        <div id="divsuggestionList" class="hidden drawerAdjustments">
+                            <div id="suggestionList"></div>
+                        </div>
+
+                        <br>
+                        <!-- Button to Request Information -->
+                        <button id="getSuggestionListBtn" type="submit" class="btn btn-twitter">Get Suggestions</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
 			<!-- FOOTER -->
 			<footer>
 				<div class="largepaddingtop">
